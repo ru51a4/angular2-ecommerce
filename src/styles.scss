@@ -254,6 +254,10 @@
 
     background: rgba(244, 247, 251, 1);
 
+    img {
+        margin-right: 10px;
+    }
+
     span {
         font-family: Jost;
         font-weight: 400;
@@ -262,6 +266,58 @@
         letter-spacing: 0%;
         color: rgba(93, 108, 123, 1);
         margin-right: 50px;
+    }
+}
+
+.promo {
+    background: rgba(111, 115, 238, 1);
+
+    .container {
+        padding: 20px;
+    }
+
+    input {
+        padding: 8px;
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        background: rgba(255, 255, 255, 0.2);
+        color: rgba(93, 108, 123, 1);
+        border: none !important;
+        width: 400px;
+        outline: none;
+    }
+
+    button {
+        background: rgba(255, 255, 255, 1) !important;
+        font-family: Jost !important;
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 100% !important;
+        letter-spacing: 0% !important;
+        text-align: center !important;
+    }
+
+    button:hover {
+        background: rgba(255, 255, 255, 1) !important;
+        font-family: Jost !important;
+        font-weight: 400 !important;
+        font-size: 16px !important;
+        line-height: 100% !important;
+        letter-spacing: 0% !important;
+        text-align: center !important;
+    }
+
+    span {
+        font-family: Jost;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 1);
     }
 }
 
