@@ -1,0 +1,266 @@
+.btn:hover {
+    background: rgba(111, 115, 238, 1) !important;
+}
+
+.btn {
+    background: rgb(111, 115, 238) !important;
+}
+
+.header1 {
+    margin-top: 75px;
+    border-bottom: 1px solid rgba(236, 243, 255, 1);
+    padding-bottom: 24px;
+
+    &--spans {
+        span {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(93, 108, 123, 1);
+            margin-right: 30px;
+        }
+
+        img {
+            margin-right: 10px;
+        }
+    }
+
+    &--right {
+        span {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(40, 39, 57, 1);
+            margin-right: 10px;
+        }
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+.logo {
+    font-family: Jost;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 1);
+    margin-right: 30px;
+}
+
+.header_main {
+    margin-top: 24px;
+
+
+
+    &--search {
+        width: 100%;
+        border: 1.5px solid rgba(111, 115, 238, 1);
+
+        margin: 0 0px 0 50px;
+
+        input {
+            padding: 8px;
+            font-family: Jost;
+            font-weight: 400;
+            width: 100%;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(93, 108, 123, 1);
+            border: none !important;
+            outline: none;
+            padding-left: 20px;
+        }
+
+    }
+
+    &--right {
+        img {
+            width: unset;
+            height: unset;
+            margin-right: 30px;
+        }
+
+        span {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+    }
+
+    &--cart {
+        margin-top: -6px;
+
+        img {
+            margin-right: 10px;
+        }
+    }
+
+    .btn-catalog {
+        width: 114;
+        height: 40;
+        margin-right: 15px;
+        top: 69px;
+        color: white;
+        left: 316px;
+        opacity: 1;
+        border-width: 1.5px;
+        border-radius: 5px;
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        background: rgba(111, 115, 238, 1);
+    }
+}
+
+.header_main--search-btn {
+    background: rgba(111, 115, 238, 1) !important;
+    color: white;
+    margin-right: 50px;
+    position: relative;
+    left: -4px;
+}
+
+.header--end {
+    background: rgba(244, 247, 251, 1) !important;
+    height: 40px;
+
+    span {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        margin-right: 40px;
+        color: rgba(40, 39, 57, 1);
+    }
+
+}
+
+//index
+.header {
+    span {
+        font-family: Jost;
+        font-weight: 600;
+        font-size: 35px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    button {
+        margin-right: 8px;
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        background-color: white !important;
+        color: rgba(111, 115, 238, 1);
+        border: 1.3px solid rgba(111, 115, 238, 1);
+    }
+}
+
+.card {
+    width: 255px;
+    padding: 0px;
+    border: 1.5px solid rgba(234, 235, 237, 1) !important;
+
+    .prop {
+        padding: 20px;
+
+        .icons {
+            span {
+                font-family: Roboto;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                color: rgba(93, 108, 123, 1);
+            }
+
+            img {
+                margin-right: 10px;
+            }
+        }
+
+        .title {
+            font-family: Jost;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(40, 39, 57, 1);
+        }
+    }
+
+    .image {
+        background-image: url('/assets/moto.jpg');
+        background-size: cover;
+        background-position: top;
+        height: 231px;
+    }
+}
+
+.price {
+    font-family: Jost;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgba(40, 39, 57, 1);
+}
+
+.btn-buy {
+    font-family: Jost !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 100% !important;
+    letter-spacing: 0% !important;
+    text-align: center !important;
+    height: 37px !important;
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.footer--icons {
+    padding-top: 20px;
+    background: rgba(244, 247, 251, 1);
+
+    .container {
+        border-bottom: 1px solid rgba(93, 108, 123, 1);
+        padding-bottom: 20px;
+
+    }
+}
+
+.footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    background: rgba(244, 247, 251, 1);
+
+    span {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(93, 108, 123, 1);
+        margin-right: 50px;
+    }
+}
