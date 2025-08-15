@@ -1,5 +1,5 @@
 .catalog {
-    app-item-card {
-        margin-right: 60px;
+    app-item-card:not(:last-child) {
+        margin-right: 90px;
     }
 }
