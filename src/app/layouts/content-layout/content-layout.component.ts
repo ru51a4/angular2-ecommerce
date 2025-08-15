@@ -5,10 +5,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./content-layout.component.css']
 })
 export class ContentLayoutComponent {
-
+  public catalog_popup = false;
   constructor() {
   }
 
+  toggle() {
+    this.catalog_popup = !this.catalog_popup;
+  }
 
 }
 

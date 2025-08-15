@@ -21,9 +21,47 @@
     <span class="logo">
       Kugoo
     </span>
-    <button class="btn btn-catalog">
+    <button style="cursor: pointer;" (click)="toggle()" class="btn btn-catalog">
       Каталог
     </button>
+    <div *ngIf="catalog_popup" class="catalog-popup">
+      <div class="d-flex" style="height:100%">
+        <div class="left d-flex flex-column">
+          <div class="d-flex">
+            <img src="/assets/12.svg">
+            <span>Электроскутеры</span>
+          </div>
+          <div class="d-flex">
+            <img src="/assets/12.svg">
+            <span>Электроскутеры</span>
+          </div>
+          <div class="d-flex">
+            <img src="/assets/13.svg">
+            <span>Электровелосипеды</span>
+          </div>
+          <div class="d-flex">
+            <img src="/assets/14.svg">
+            <span>Робот-пылесосы</span>
+          </div>
+          <div class="d-flex">
+            <img src="/assets/15.svg">
+            <span>Весы</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="row">
+            <div class="col-6 d-flex flex-column">
+              <span>Внедорожный</span>
+              <span>Городской</span>
+              <span>Зимний</span>
+              <span>С сиденьем</span>
+              <span>Без сиденья</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="d-flex" style="flex-grow: 1;">
     <div class="header_main--search">
