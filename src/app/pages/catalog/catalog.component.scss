@@ -1,0 +1,75 @@
+app-item-card:not(:last-child) {
+    margin-right: 50px;
+}
+
+.head {
+    .ttitle {
+        font-family: Jost;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+        color: black;
+    }
+
+    .sort {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: black;
+    }
+
+    select {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(111, 115, 238, 1);
+        border: 1.3px solid rgba(111, 115, 238, 1);
+        padding: 7px;
+    }
+}
+
+.filter {
+    background: rgba(244, 247, 251, 1);
+    padding: 20px;
+
+    .title {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    input {
+        width: 16px;
+        height: 16px;
+
+    }
+
+    label {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        margin-left: 9px;
+    }
+
+    .more {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 14px;
+        leading-trim: NONE;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: rgba(111, 115, 238, 1);
+    }
+}

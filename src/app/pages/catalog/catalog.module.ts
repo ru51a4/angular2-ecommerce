@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard.component';
-import { DashboardRoutingModule } from './dashboard-routing.module';
+import { CatalogComponent } from './catalog.component';
+import { DashboardRoutingModule } from './catalog-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ItemCardComponent } from 'src/app/components/item-card/item-card.component';
 import { SharedModule } from 'src/app/shared.module';
 
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [CatalogComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -16,5 +17,5 @@ import { SharedModule } from 'src/app/shared.module';
     SharedModule,
   ]
 })
-export class DashboardModule {
+export class CatalogModule {
 }

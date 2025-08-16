@@ -1,0 +1,96 @@
+<div class="head d-flex justify-content-between">
+    <div class="ttitle">Фильтр</div>
+    <div>
+        <span class="me-3 sort">Сортировать:</span>
+        <select class="me-3 ">
+            <option>По цене</option>
+        </select>
+        <select>
+            <option>По дальности хода</option>
+        </select>
+    </div>
+</div>
+<div class="mt-3 mb-5 row">
+    <div class="col-3">
+        <div class="filter">
+            <div>
+                <span class="title">
+                    Тип
+                </span>
+                <div class="mt-2">
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Внедорожный</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Городской</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Зимний</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2">
+                <span class="title">
+                    Для кого
+                </span>
+                <div class="mt-2">
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Для взрослого</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Для ребенка</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Для пенсионера</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2">
+                <span class="title">
+                    Вес
+                </span>
+                <div class="mt-2">
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Легкие (до 15 кг)</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Средние (15-30 кг)</label>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <input type="checkbox">
+                        <label>Тяжелые (свыше 30 кг)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2">
+                <span style="cursor: pointer;" class="more me-2">Показать весь фильтр <img
+                        src="/assets/arrow.svg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-9 d-flex flex-column align-items-end justify-content-center">
+        <div class="d-flex flex-wrap">
+            <app-item-card></app-item-card>
+            <app-item-card></app-item-card>
+            <app-item-card></app-item-card>
+        </div>
+        <div class="d-flex mt-3 flex-wrap">
+            <app-item-card></app-item-card>
+            <app-item-card></app-item-card>
+            <app-item-card></app-item-card>
+        </div>
+        <div class="d-flex mt-3 flex-wrap">
+            <app-item-card></app-item-card>
+            <app-item-card></app-item-card>
+            <app-item-card></app-item-card>
+        </div>
+    </div>
+</div>

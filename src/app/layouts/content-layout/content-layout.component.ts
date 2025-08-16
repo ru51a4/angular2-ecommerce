@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-content-layout',
   templateUrl: './content-layout.component.html',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ContentLayoutComponent {
   public catalog_popup = false;
-  constructor() {
+  public url = '';
+  constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      this.url = this.router.url;
+      this.catalog_popup = false;
+    })
   }
 
   toggle() {

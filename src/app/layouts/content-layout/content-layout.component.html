@@ -18,7 +18,7 @@
 </div>
 <div class="header_main d-flex container justify-content-between align-items-center">
   <div class="d-flex">
-    <span class="logo">
+    <span class="logo" style="cursor: pointer;" routerLink="/dashboard">
       Kugoo
     </span>
     <button style="cursor: pointer;" (click)="toggle()" class="btn btn-catalog">
@@ -51,11 +51,11 @@
         <div class="right">
           <div class="row">
             <div class="col-6 d-flex flex-column">
-              <span>Внедорожный</span>
-              <span>Городской</span>
-              <span>Зимний</span>
-              <span>С сиденьем</span>
-              <span>Без сиденья</span>
+              <span routerLink="/catalog" style="cursor: pointer;">Внедорожный</span>
+              <span routerLink="/catalog" style="cursor: pointer;">Городской</span>
+              <span routerLink="/catalog" style="cursor: pointer;">Зимний</span>
+              <span routerLink="/catalog" style="cursor: pointer;">С сиденьем</span>
+              <span routerLink="/catalog" style="cursor: pointer;">Без сиденья</span>
             </div>
 
           </div>
@@ -102,6 +102,16 @@
     </span>
   </div>
 
+</div>
+
+<div class="breadcrumbb mt-4">
+  <div class="container d-flex align-items-center">
+    <img width="13px" src="/assets/home.svg" />
+    <span>Главная </span>
+    <ng-container *ngIf="url == '/catalog'">
+      <span>/</span> <span>Каталог</span><span>/</span> <span>Электросамокаты</span>
+    </ng-container>
+  </div>
 </div>
 <div style="min-height: 75vh;" class="container py-4">
   <router-outlet></router-outlet>

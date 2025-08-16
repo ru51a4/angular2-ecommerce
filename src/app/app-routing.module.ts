@@ -13,8 +13,8 @@ const routes: Routes = [{
       canActivate: [],
     },
     {
-      path: 'login',
-      loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
+      path: 'catalog',
+      loadChildren: () => import('./pages/catalog/catalog.module').then(m => m.CatalogModule),
       canActivate: []
     },
     {
