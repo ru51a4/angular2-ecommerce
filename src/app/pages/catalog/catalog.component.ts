@@ -7,10 +7,12 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class CatalogComponent {
 
-
+  public allFilter = false;
 
   constructor() {
 
   }
-
+  toggle() {
+    this.allFilter = true;
+  }
 }
