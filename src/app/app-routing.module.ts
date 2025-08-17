@@ -18,6 +18,11 @@ const routes: Routes = [{
       canActivate: []
     },
     {
+      path: 'detail',
+      loadChildren: () => import('./pages/detail/detail.module').then(m => m.DetailModule),
+      canActivate: []
+    },
+    {
       path: '**',
       loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
       canActivate: []

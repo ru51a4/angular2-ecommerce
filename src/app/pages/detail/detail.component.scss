@@ -1,0 +1,74 @@
+.itemImage {
+    max-width: 100%;
+}
+
+.title {
+    font-family: Jost;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: black;
+}
+
+.title2 {
+    span {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(93, 108, 123, 1);
+        margin-right: 24px;
+    }
+}
+
+.title3 {
+    span {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(40, 39, 57, 1);
+        margin-right: 35px;
+    }
+}
+
+.title4 {
+    .price {
+        font-family: Jost;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .card {
+        background: rgba(244, 247, 251, 1);
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+
+        .title1 {
+            color: rgba(93, 108, 123, 1);
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+
+        .title2 {
+            color: rgba(40, 39, 57, 1);
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+    }
+}

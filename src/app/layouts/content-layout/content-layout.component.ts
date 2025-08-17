@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { BuyModalComponent } from 'src/app/components/buy-modal/buy-modal.component';
 @Component({
   selector: 'app-content-layout',
   templateUrl: './content-layout.component.html',

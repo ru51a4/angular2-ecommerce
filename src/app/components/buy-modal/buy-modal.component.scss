@@ -1,0 +1,78 @@
+.title {
+    font-family: Jost;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: rgba(40, 39, 57, 1);
+}
+
+.title2 {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: rgba(40, 39, 57, 1);
+}
+
+img {
+    max-width: 330px;
+}
+
+input[type=text] {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 15.5%;
+    text-align: center;
+    color: rgba(93, 108, 123, 1);
+    padding: 15px;
+}
+
+.btn-yellow {
+    background: rgba(243, 167, 18, 1) !important;
+    font-family: Jost !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 100% !important;
+    letter-spacing: 0% !important;
+    text-align: center !important;
+    color: white !important;
+    padding: 15px !important;
+}
+
+label {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0%;
+}
+
+input[type=checkbox] {
+    width: 16px;
+    height: 16px;
+}
+
+.price {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgba(117, 209, 74, 1);
+    box-shadow: 0px 10px 20px 0px rgba(111, 115, 238, 0.1);
+    background: white;
+    padding: 10px;
+    position: absolute;
+    margin-top: 7px;
+    margin-left: -16px;
+}
+
+.href {
+    cursor: pointer;
+    color: rgba(111, 115, 238, 1);
+}

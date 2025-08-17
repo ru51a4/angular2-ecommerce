@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="image">
+  <div style="cursor: pointer;" (click)="detail()" class="image">
   </div>
   <div class="prop d-flex flex-column align-items-start justify-content-center">
     <span class="title">Kugoo Kirin M4</span>
@@ -36,6 +36,6 @@
     </div>
   </div>
   <div style="padding: 20px; padding-top: 0px; padding-bottom: 5px;" class="w-100">
-    <button class="w-100 btn btn-buy">Купить в 1 клик</button>
+    <button (click)="buyModal()" class="w-100 btn btn-buy">Купить в 1 клик</button>
   </div>
 </div>
