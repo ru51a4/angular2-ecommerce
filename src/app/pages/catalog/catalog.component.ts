@@ -12,6 +12,7 @@ export class CatalogComponent {
   constructor() {
 
   }
+
   toggle() {
     this.allFilter = true;
   }

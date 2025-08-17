@@ -14,6 +14,7 @@ export class ContentLayoutComponent {
     this.router.events.subscribe(() => {
       this.url = this.router.url;
       this.catalog_popup = false;
+      window.scrollTo({ top: 0 });
     })
   }
 

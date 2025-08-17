@@ -14,6 +14,21 @@ export class DetailComponent {
   constructor(public dialog: MatDialog, private router: Router) {
 
   }
+  public arr = [
+    {
+      title: 'Базовая', curr: true
+    },
+    {
+      title: 'Версия MAX', curr: false
+    },
+    {
+      title: 'VIP-версия', curr: false
+    },
+  ]
+  toggle(id: any) {
+    this.arr = this.arr.map((c) => { return { ...c, curr: false } })
+    this.arr[id].curr = true;
+  }
   buyModal() {
     console.log('asd')
     this.dialog.open(BuyModalComponent, {

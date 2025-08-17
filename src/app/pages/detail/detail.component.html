@@ -57,14 +57,9 @@
                 <img src="/assets/q.svg">
             </div>
             <div class="d-flex mt-3 flex-wrap">
-                <div class="btn1 me-1 mb-2 choose">
-                    Базовая
-                </div>
-                <div class="btn1 me-1 mb-2">
-                    Версия MAX
-                </div>
-                <div class="btn1 me-1 mb-2">
-                    VIP-версия
+                <div style="cursor: pointer;" *ngFor="let item of arr; let i = index" (click)="toggle(i)"
+                    class="btn1 me-1 mb-2" [class.choose]=" item.curr">
+                    {{item.title}}
                 </div>
             </div>
         </div>
