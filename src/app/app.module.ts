@@ -17,7 +17,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ContentLayoutComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     MatProgressBarModule,
