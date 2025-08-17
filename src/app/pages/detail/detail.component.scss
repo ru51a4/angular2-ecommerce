@@ -72,3 +72,65 @@
         }
     }
 }
+
+.buy {
+    background: rgba(244, 247, 251, 1);
+    padding: 15px;
+
+    .title1 {
+        font-family: Jost;
+        font-weight: 600;
+        font-size: 35px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .div1 {
+        border: 1.3px solid rgba(234, 235, 237, 1);
+        padding: 10px;
+    }
+
+    .title2 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0%;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .title3 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0%;
+        color: rgba(40, 39, 57, 1);
+    }
+}
+
+.span1 {
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+.choose {
+    border: 2px solid rgba(111, 115, 238, 1) !important;
+}
+
+.btn1 {
+    padding: 25px 50px 25px 50px;
+    border: 1.5px solid rgba(234, 235, 237, 1);
+    font-family: Jost;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    min-width: 200px;
+}
