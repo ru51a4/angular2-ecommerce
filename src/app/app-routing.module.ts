@@ -23,6 +23,11 @@ const routes: Routes = [{
       canActivate: []
     },
     {
+      path: 'cart',
+      loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule),
+      canActivate: []
+    },
+    {
       path: '**',
       loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
       canActivate: []
@@ -32,7 +37,7 @@ const routes: Routes = [{
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabledBlocking'
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

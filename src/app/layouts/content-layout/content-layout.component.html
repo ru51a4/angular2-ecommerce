@@ -75,8 +75,8 @@
     <img src="/assets/balance.svg" />
     <img src="/assets/love.svg" />
     <div class="header_main--cart">
-      <img src="/assets/cart.svg" />
-      <span>Корзина</span>
+      <img style="cursor: pointer;" routerLink="/cart" src="/assets/cart.svg" />
+      <span style="cursor: pointer;" routerLink="/cart">Корзина</span>
     </div>
   </div>
 </div>
@@ -110,6 +110,9 @@
     <span style="cursor: pointer;" routerLink="/dashboard">Главная </span>
     <ng-container *ngIf="url == '/catalog'">
       <span>/</span> <span>Каталог</span><span>/</span> <span>Электросамокаты</span>
+    </ng-container>
+    <ng-container *ngIf="url == '/cart'">
+      <span>/</span> <span>Каталог</span><span>/</span> <span>Моя корзина</span>
     </ng-container>
     <ng-container *ngIf="url == '/detail'">
       <span>/</span> <span style="cursor: pointer;" routerLink="/catalog">Каталог</span><span>/</span>
