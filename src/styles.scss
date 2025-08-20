@@ -276,7 +276,8 @@
     background: rgba(111, 115, 238, 1);
 
     .container {
-        padding: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     input {
@@ -386,5 +387,85 @@
         font-size: 12px;
         line-height: 100%;
         letter-spacing: 0%;
+    }
+}
+
+.footer-desc {
+    background: rgba(244, 247, 251, 1);
+
+    .container {
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(93, 108, 123, 1);
+    }
+
+
+    .title1 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: black;
+    }
+
+    .href {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(111, 115, 238, 1);
+    }
+
+    .cardd {
+        .ttitle1 {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(40, 39, 57, 1);
+        }
+
+        .ttitle2 {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(40, 39, 57, 1);
+        }
+
+        .ttitle4 {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 14px;
+            color: rgba(40, 39, 57, 1);
+            line-height: 129%;
+            letter-spacing: 0%;
+        }
+
+        .ttitle3 {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(93, 108, 123, 1);
+        }
+    }
+
+    .title2 {
+        margin-top: 24px;
+
+        span {
+            margin-bottom: 20px;
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(93, 108, 123, 1);
+        }
     }
 }
