@@ -40,13 +40,16 @@ export class Cart2Component {
   toggle2(id: any) {
     this.curr2 = id;
   }
-  submit() {
-    this.dirty = true;
+  valid() {
     let valid = true
     if (this.curr1 != 1) {
       valid = (this.form1.valid);
     }
-    valid = valid && this.form2.valid;
+    return valid && this.form2.valid;
+  }
+  submit() {
+    this.dirty = true;
+    let valid = this.valid();
     if (valid) {
       this.router.navigate(['/success'])
     }
