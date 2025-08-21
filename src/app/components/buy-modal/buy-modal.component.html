@@ -7,7 +7,7 @@
       Менеджер позвонит в течение 5 минут, чтобы уточнить детали вашего заказа.
     </span>
     <form class="w-100" [formGroup]="form">
-      <input class="mb-4" class="form-control"
+      <input mask='(000) 000-0000' class="mb-4" class="form-control"
         [class.is-invalid]="form.controls['phone'].invalid && (form.controls['phone'].touched || dirty)"
         formControlName="phone" type="text" placeholder="+7 (___) __ - __ - __">
       <label *ngIf="dirty && !valid()" style="color:red">Заполните обязательные поля</label>

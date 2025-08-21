@@ -4,6 +4,7 @@ import { Cart2Component, } from './cart2.component';
 import { Cart2RoutingModule } from './cart2-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared.module';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 
 @NgModule({
@@ -13,8 +14,10 @@ import { SharedModule } from 'src/app/shared.module';
     Cart2RoutingModule,
     FormsModule,
     SharedModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    NgxMaskDirective
+  ],
+  providers: [provideNgxMask()],
 })
 export class Cart2Module {
 }

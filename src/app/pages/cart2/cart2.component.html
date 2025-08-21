@@ -255,7 +255,7 @@
                 <div class="col-6">
                     <div class="d-flex flex-column">
                         <label>Ваш телефон<span style="color:red">*</span></label>
-                        <input formControlName="phone" class="form-control"
+                        <input mask='(000) 000-0000' formControlName="phone" class="form-control"
                             [class.is-invalid]="form2.controls['phone'].invalid && (form2.controls['phone'].touched || dirty)"
                             type="text" placeholder="+7 (___) __ - __ - __">
                     </div>
