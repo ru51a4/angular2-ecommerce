@@ -28,6 +28,16 @@ const routes: Routes = [{
       canActivate: []
     },
     {
+      path: 'cart2',
+      loadChildren: () => import('./pages/cart2/cart2.module').then(m => m.Cart2Module),
+      canActivate: []
+    },
+    {
+      path: 'success',
+      loadChildren: () => import('./pages/success/success.module').then(m => m.SuccessModule),
+      canActivate: []
+    },
+    {
       path: '**',
       loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
       canActivate: []

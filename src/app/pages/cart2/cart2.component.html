@@ -1,0 +1,346 @@
+<div class="row sstart cart">
+    <div class="d-flex flex-column">
+        <span class="title1">Моя корзина</span>
+        <span class="mt-4 title2">2 товара</span>
+    </div>
+    <div class="mt-3">
+        <span class="title3"><span class="href">Шаг 1. </span>Выберите способ доставки</span>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-9">
+        <div class="d-flex flex-wrap">
+            <div [class.delivery-card-disable]="curr1 != 1" (click)="toggle1(1)" style="cursor: pointer;"
+                class="d-inline-flex delivery-card me-5">
+                <div class="me-2">
+                    <img *ngIf="curr1 == 1" src="/assets/rradio.svg">
+                    <img *ngIf="curr1 != 1" src="/assets/dradio.svg">
+                </div>
+                <div class="d-flex justify-content-between align-items-start flex-column">
+                    <div class="div1">
+                        <span>
+                            Самовывоз из магазина
+                        </span>
+                    </div>
+                    <select id="kek" class="w-100 div2 mt-3">
+                        <option>в Москве</option>
+                    </select>
+                    <div class="div3 d-flex align-items-center mt-3">
+                        <div class="me-2">
+                            <img src="/assets/locate.svg">
+                        </div>
+                        <span>ул. Ткацкая, 5 стр. 16.<br>
+                            Пн - Вс 10:00 - 20:00.</span>
+                    </div>
+                </div>
+            </div>
+            <div [class.delivery-card-disable]="curr1 != 2" (click)="toggle1(2)" style="cursor: pointer;"
+                class="d-inline-flex me-5 delivery-card">
+                <div class="me-2">
+                    <img *ngIf="curr1 == 2" src="/assets/rradio.svg">
+                    <img *ngIf="curr1 != 2" src="/assets/dradio.svg">
+                </div>
+                <div class="d-flex justify-content-between align-items-start flex-column">
+                    <div class="div1">
+                        <span>
+                            Доставка курьером
+                        </span>
+                    </div>
+                    <div class="ul">
+                        <div>
+                            <img src="/assets/orange.svg">
+                            <span>Москва</span>
+                        </div>
+                        <div>
+                            <img src="/assets/orange.svg">
+                            <span>Санкт-Петербург</span>
+                        </div>
+                        <div>
+                            <img src="/assets/orange.svg">
+                            <span>Краснодар</span>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <button class="btn btn-green">Бесплатно</button>
+                    </div>
+                </div>
+            </div>
+            <div [class.delivery-card-disable]="curr1 != 3" (click)="toggle1(3)" style="cursor: pointer;"
+                class="d-inline-flex me-5 delivery-card">
+                <div class="me-2">
+                    <img *ngIf="curr1 == 3" src="/assets/rradio.svg">
+                    <img *ngIf="curr1 != 3" src="/assets/dradio.svg">
+                </div>
+                <div class="d-flex justify-content-between align-items-start flex-column">
+                    <div class="div1">
+                        <span>
+                            Срочная доставка<br> курьером
+                        </span>
+
+                        <div class="mt-4 title4">
+                            <span>Только по Москве</span>
+                        </div>
+                    </div>
+                    <div class="title5">
+                        <span>Стоимость уточняйте у менеджера<br><span class="b mt-1">+ 7 (800) 505 54 61</span></span>
+                    </div>
+                </div>
+            </div>
+            <div [class.delivery-card-disable]="curr1 != 4" (click)="toggle1(4)" style="cursor: pointer;"
+                class="d-inline-flex me-5 delivery-card">
+                <div class="me-2">
+                    <img *ngIf="curr1 == 4" src="/assets/rradio.svg">
+                    <img *ngIf="curr1 != 4" src="/assets/dradio.svg">
+                </div>
+                <div class="d-flex justify-content-between align-items-start flex-column">
+                    <div class="div1">
+                        <span>
+                            Служба доставки CDEK
+                        </span>
+
+                        <div class="mt-4 title4">
+                            <span>Регионы России</span>
+                        </div>
+                    </div>
+                    <div class="title5">
+                        <span>Стоимость уточняйте у менеджера<br><span class="b mt-1">+ 7 (800) 505 54 61</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card-price">
+            <div class="d-flex flex-column">
+                <span class="title1">Итого</span>
+                <span class="title-price">58 800 ₽</span>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <span class="title2">Стоимость товаров</span>
+                    <span class="title3">58 800 ₽</span>
+                </div>
+                <div class="mt-2 d-flex justify-content-between">
+                    <span class="title2">Сумма скидки</span>
+                    <span class="title3">8 000 ₽</span>
+                </div>
+                <div class="mt-2 d-flex justify-content-between">
+                    <span class="title2">Итого без учета доставки</span>
+                    <span class="title3">50 800 ₽</span>
+                </div>
+                <hr>
+                <button class="btn btn-buy" style="cursor: pointer; height: 50px; color: white;">
+                    Подтвердить заказ
+                </button>
+                <div class="mt-3 d-flex">
+                    <input type="checkbox">
+                    <label class="ms-3 label1">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и
+                        <span class="href">политикой конфиденциальности</span></label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 
+
+-->
+<ng-container *ngIf="curr1 != 1">
+    <div class="row sstart cart">
+        <div class="mt-3">
+            <span class="title3">
+                <span class="href">Шаг 2. </span>
+                Укажите адрес доставки</span>
+        </div>
+    </div>
+    <div class="row mt-4 inputs">
+        <div class="col-9">
+            <div class="row">
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <label>Город/населенный пункт<span style="color:red">*</span></label>
+                        <input type="text" placeholder="Например, Воронеж">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <label>Название улицы<span style="color:red">*</span></label>
+                        <input type="text" placeholder="Например, Сурганова">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 col-9">
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <label>Номер дома<span style="color:red">*</span></label>
+                                <input type="text" placeholder="Введите число">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <label>Корпус</label>
+                                <input type="text" placeholder="Введите число">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <label>Квартира</label>
+                                <input type="text" placeholder="Введите число">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex flex-column">
+                                <label>Индекс</label>
+                                <input type="text" placeholder="______">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3 col-9">
+            <div class="d-flex flex-column">
+                <label>Комментрий</label>
+                <textarea placeholder="Оставьте пожелание или комментарий к заказу "></textarea>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<!-- -->
+<div class="row sstart cart">
+    <div class="mt-3">
+        <span class="title3">
+            <span *ngIf="curr1 == 1" class="href">Шаг 2. </span>
+            <span *ngIf="curr1 != 1" class="href">Шаг 3. </span>
+
+            Укажите данные получателя</span>
+    </div>
+</div>
+<div class="row mt-4 inputs">
+    <div class="col-9">
+        <div class="row">
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <label>Ваша фамилия</label>
+                    <input type="text" placeholder="Введите фамилию">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <label>Ваше имя</label>
+                    <input type="text" placeholder="Введите имя">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 col-9">
+        <div class="row">
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <label>Ваш телефон<span style="color:red">*</span></label>
+                    <input type="text" placeholder="+7 (___) __ - __ - __">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <label>Ваш email</label>
+                    <input type="text" placeholder="Введите email">
+                    <div class="d-flex align-items-start mt-2">
+                        <input type="checkbox" class="me-2">
+                        <label>Сообщать мне об акциях и скидках</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="d-flex flex-column">
+            <label>Комментрий</label>
+            <textarea placeholder="Оставьте пожелание или комментарий к заказу "></textarea>
+        </div>
+    </div>
+</div>
+<div class="row sstart cart">
+    <div class="mt-3">
+        <span class="title3"><span class="href">Шаг 3. </span>Выберите способ оплаты</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-9">
+        <div [class.delivery-card-disable]="curr2 != 1" (click)="toggle2(1)" style="cursor: pointer;"
+            class="d-inline-flex me-5 delivery-card">
+            <div class="me-2">
+                <img *ngIf="curr2 == 1" src="/assets/rradio.svg">
+                <img *ngIf="curr2 != 1" src="/assets/dradio.svg">
+            </div>
+            <div class="d-flex justify-content-between align-items-start flex-column">
+                <div class="div1">
+                    <span>
+                        Наличными
+                    </span>
+                    <div class="mt-3 title5">
+                        <span>Курьеру, в магазине или<br>при доставке CDEK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [class.delivery-card-disable]="curr2 != 2" (click)="toggle2(2)" style="cursor: pointer;"
+            class="d-inline-flex me-5 delivery-card">
+            <div class="me-2">
+                <img *ngIf="curr2 == 2" src="/assets/rradio.svg">
+                <img *ngIf="curr2 != 2" src="/assets/dradio.svg">
+            </div>
+            <div class="d-flex justify-content-between align-items-start flex-column">
+                <div class="div1">
+                    <span>
+                        В рассрочку
+                    </span>
+                    <div class="mt-3 title5">
+                        <span>После оформления заказа<br>c вами свяжется менеджер.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [class.delivery-card-disable]="curr2 != 3" (click)="toggle2(3)" style="cursor: pointer;"
+            class="d-inline-flex me-5 delivery-card">
+            <div class="me-2">
+                <img *ngIf="curr2 == 3" src="/assets/rradio.svg">
+                <img *ngIf="curr2 != 3" src="/assets/dradio.svg">
+            </div>
+            <div class="d-flex justify-content-between align-items-start flex-column">
+                <div class="div1">
+                    <span>
+                        Через интернет-<br>банкинг по счету
+                    </span>
+                    <div class="mt-3 title5">
+                        <span>Менеджер свяжется с вами,<br>чтобы выставить счет</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [class.delivery-card-disable]="curr2 != 4" (click)="toggle2(4)" style="cursor: pointer;"
+            class="d-inline-flex me-5 delivery-card">
+            <div class="me-2">
+                <img *ngIf="curr2 == 4" src="/assets/rradio.svg">
+                <img *ngIf="curr2 != 4" src="/assets/dradio.svg">
+            </div>
+            <div class="d-flex justify-content-between align-items-start flex-column">
+                <div class="div1">
+                    <span>
+                        Онлайн на сайте
+                    </span>
+                    <div class="mt-3 title5">
+                        <span>После оформления заказа вы<br>будете перенаправлены на<br>страницу оплаты</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,16 +4,10 @@ import { Router } from '@angular/router';
 import { BuyModalComponent } from 'src/app/components/buy-modal/buy-modal.component';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
+  selector: 'app-success',
+  templateUrl: './success.component.html',
+  styleUrls: ['./success.component.scss'],
 })
-export class CartComponent {
+export class SuccessComponent {
 
-  constructor(private router: Router) { }
-
-  cart2() {
-    console.log(111)
-    this.router.navigate(['/cart2'])
-  }
 }

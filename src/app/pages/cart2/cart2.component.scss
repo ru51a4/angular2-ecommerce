@@ -1,0 +1,261 @@
+.sstart {
+    .title1 {
+        font-family: Jost;
+        font-weight: 600;
+        font-size: 35px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .title2 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(93, 108, 123, 1);
+    }
+
+    .title3 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 20px;
+        leading-trim: NONE;
+        line-height: 119%;
+        letter-spacing: 0%;
+    }
+
+    .href {
+        color: rgba(111, 115, 238, 1);
+    }
+}
+
+.delivery-card {
+    margin: 15px;
+    min-height: 158px;
+    border: 1px solid rgba(111, 115, 238, 1);
+    padding: 19px;
+    margin-left: 0px !important;
+    min-width: 240px;
+
+    input[type=radio] {
+        width: 16px;
+        height: 16px;
+        border: 1px solid rgba(111, 115, 238, 1);
+        background: rgba(111, 115, 238, 1);
+    }
+
+    .title4 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .title5 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(93, 108, 123, 1);
+
+        span {
+            font-family: Jost !important;
+            font-weight: 400 !important;
+            font-size: 12px !important;
+            line-height: 100% !important;
+            letter-spacing: 0% !important;
+            color: rgba(93, 108, 123, 1) !important;
+        }
+    }
+
+    .b {
+        color: black;
+    }
+
+    .div1 {
+
+
+
+        span {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 16px;
+
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+
+
+    }
+
+    .div2 {
+        background: rgba(244, 247, 251, 1);
+        padding: 5px;
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: start;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .btn-green {
+        background: rgba(117, 209, 74, 1) !important;
+        min-height: 23px !important;
+        font-family: Jost !important;
+        font-weight: 400 !important;
+        font-size: 12px !important;
+        line-height: 100% !important;
+        letter-spacing: 0% !important;
+        color: white !important;
+        padding: 7px !important;
+    }
+
+    .ul {
+        span {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(40, 39, 57, 1);
+        }
+
+        img {
+            width: 5px;
+            height: 5px;
+            margin-right: 7px;
+        }
+    }
+
+    .div3 {
+
+        span {
+            font-family: Jost;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(40, 39, 57, 1);
+        }
+
+        img {
+            width: 15px;
+            height: 15px;
+        }
+    }
+}
+
+.delivery-card-disable {
+    background: rgba(244, 247, 251, 1);
+    border: 1px solid rgba(244, 247, 251, 1);
+}
+
+.card-price {
+    background: rgba(244, 247, 251, 1);
+    padding: 20px;
+
+    .title1 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .title-price {
+        font-family: Jost;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: right;
+        text-transform: uppercase;
+        align-self: start;
+        padding-top: 20px;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .title2 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        color: rgba(40, 39, 57, 1);
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+
+    .title3 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: right;
+        color: rgba(40, 39, 57, 1);
+    }
+
+    .btn-buy {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    .label1 {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0%;
+    }
+
+    .href {
+        color: rgba(111, 115, 238, 1);
+    }
+}
+
+.inputs {
+    label {
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(40, 39, 57, 1);
+        margin-bottom: 4px;
+    }
+
+    input[type=text] {
+        border: 1px solid rgba(234, 235, 237, 1);
+        background: rgba(255, 255, 255, 1);
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 15.5%;
+        color: rgba(93, 108, 123, 1);
+        padding: 14px;
+    }
+
+    textarea {
+        min-height: 119px;
+        border: 1px solid rgba(234, 235, 237, 1);
+        font-family: Jost;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        padding: 14px;
+    }
+}

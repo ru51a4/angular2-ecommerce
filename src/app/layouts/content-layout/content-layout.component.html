@@ -112,7 +112,10 @@
       <span>/</span> <span>Каталог</span><span>/</span> <span>Электросамокаты</span>
     </ng-container>
     <ng-container *ngIf="url == '/cart'">
-      <span>/</span> <span>Каталог</span><span>/</span> <span>Моя корзина</span>
+      <span>/</span> <span>Моя корзина</span>
+    </ng-container>
+    <ng-container *ngIf="url == '/cart2'">
+      <span>/</span> <span>Моя корзина</span>
     </ng-container>
     <ng-container *ngIf="url == '/detail'">
       <span>/</span> <span style="cursor: pointer;" routerLink="/catalog">Каталог</span><span>/</span>
