@@ -237,6 +237,10 @@
         margin-bottom: 4px;
     }
 
+    input[type=text].is-invalid {
+        border: 1px solid red;
+    }
+
     input[type=text] {
         border: 1px solid rgba(234, 235, 237, 1);
         background: rgba(255, 255, 255, 1);
