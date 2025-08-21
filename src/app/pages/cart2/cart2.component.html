@@ -128,7 +128,9 @@
                     <span class="title3">50 800 ₽</span>
                 </div>
                 <hr>
-                <label *ngIf="dirty && !valid()" style="color:red">Заполните обязательные поля</label>
+                <label class="my-1" *ngIf="dirty && !valid()"
+                    style="font-family: Jost;font-weight: 400;font-size: 12px;line-height: 14px; color:red;">Заполните
+                    обязательные поля</label>
                 <button class="btn btn-buy" (click)="submit()" style="cursor: pointer; height: 50px; color: white;">
                     Подтвердить заказ
                 </button>
