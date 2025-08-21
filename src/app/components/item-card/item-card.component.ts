@@ -16,24 +16,20 @@ export class ItemCardComponent {
   }
   public destroy$ = new Subject();
   buyModal() {
-    console.log('asd')
-    this.dialog.open(BuyModalComponent, {
+    let modal = this.dialog.open(BuyModalComponent, {
       data: {},
       hasBackdrop: true,
       backdropClass: '_',
       closeOnNavigation: true
     });
-    this.service.modals.pipe(takeUntil(this.destroy$), filter((a) => !!a)).subscribe(() => {
-      this.dialog.closeAll();
+    this.service.modals.pipe(filter((t) => !!t)).subscribe(() => {
+      modal.close()
+      this.service.modals.next(false);
     })
 
   }
   detail() {
     this.router.navigate(['/detail']);
-  }
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.complete();
   }
 
 }
