@@ -45,9 +45,10 @@ export class DetailComponent {
       title: 'VIP-версия', curr: false
     },
   ]
-  toggle(id: any) {
-    this.arr = this.arr.map((c) => { return { ...c, curr: false } })
-    this.arr[id].curr = true;
+  toggle(id1: any, id: any) {
+    console.log({ dd: this.data.props })
+    this.data.props[id1].val = this.data.props[id1].val.map((c: any) => { return { ...c, curr: false } })
+    this.data.props[id1].val[id].curr = true;
   }
   buyModal() {
 

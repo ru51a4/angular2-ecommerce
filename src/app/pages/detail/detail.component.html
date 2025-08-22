@@ -47,13 +47,13 @@
                 </div>
             </div>
         </div>
-        <div class="mt-5" *ngFor="let item of data.props">
+        <div class="mt-5" *ngFor="let item of data.props; let j = index">
             <div class="d-flex align-items-center">
                 <span class="span1 me-2">{{item.key}}</span>
                 <img src="/assets/q.svg">
             </div>
             <div class="d-flex mt-3 flex-wrap">
-                <div style="cursor: pointer;" *ngFor="let item2 of item.val; let i = index" (click)="toggle(i)"
+                <div style="cursor: pointer;" *ngFor="let item2 of item.val; let i = index" (click)="toggle(j, i)"
                     class="btn1 me-1 mb-2" [class.choose]=" item2.curr">
                     {{item2.title}}
                 </div>
