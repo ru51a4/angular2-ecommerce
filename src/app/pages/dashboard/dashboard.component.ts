@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs';
+import { forkJoin, switchMap } from 'rxjs';
 import { GlobalService } from 'src/app/global.service';
 
 @Component({
@@ -17,15 +17,12 @@ export class DashboardComponent {
   public catalog: any = { "tree": [] };
   public els: any = [];
   ngOnInit() {
-    this.service.getProducts(1, 1).pipe(switchMap((data: any) => {
-      this.els = data.els;
-      return this.service.getProducts(1, 2)
-    })).subscribe((data: any) => {
-      let t = data.tree
+    forkJoin([this.service.getProducts(1, 1), this.service.getProducts(1, 2)]).subscribe((data: any) => {
+      let t = data[0].tree
       console.log({ data })
       this.els = [
-        ...this.els,
-        ...data.els
+        ...data[0].els,
+        ...data[1].els
       ];
       let dfs = (node: any) => {
         for (let key in node) {
