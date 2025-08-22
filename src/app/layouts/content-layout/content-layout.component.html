@@ -19,7 +19,7 @@
 <div class="header_main d-flex container justify-content-between align-items-center">
   <div class="d-flex">
     <span class="logo" style="cursor: pointer;" routerLink="/dashboard">
-      Kugoo
+      IBLOCKCMS
     </span>
     <button style="cursor: pointer;" (click)="toggle()" class="btn btn-catalog">
       Каталог
@@ -27,35 +27,15 @@
     <div *ngIf="catalog_popup" class="catalog-popup">
       <div class="d-flex" style="height:100%">
         <div class="left d-flex flex-column">
-          <div class="d-flex">
-            <img src="/assets/12.svg">
-            <span>Электроскутеры</span>
-          </div>
-          <div class="d-flex">
-            <img src="/assets/12.svg">
-            <span>Электроскутеры</span>
-          </div>
-          <div class="d-flex">
-            <img src="/assets/13.svg">
-            <span>Электровелосипеды</span>
-          </div>
-          <div class="d-flex">
-            <img src="/assets/14.svg">
-            <span>Робот-пылесосы</span>
-          </div>
-          <div class="d-flex">
-            <img src="/assets/15.svg">
-            <span>Весы</span>
+          <div *ngFor="let item of d; let i = index;" style="cursor: pointer;" class="d-flex">
+            <span (mouseenter)="mouse(item)">{{item}}</span>
           </div>
         </div>
         <div class="right">
           <div class="row">
             <div class="col-6 d-flex flex-column">
-              <span routerLink="/catalog" style="cursor: pointer;">Внедорожный</span>
-              <span routerLink="/catalog" style="cursor: pointer;">Городской</span>
-              <span routerLink="/catalog" style="cursor: pointer;">Зимний</span>
-              <span routerLink="/catalog" style="cursor: pointer;">С сиденьем</span>
-              <span routerLink="/catalog" style="cursor: pointer;">Без сиденья</span>
+              <span *ngFor="let item of dd; let i = index;" (click)="go(item)" style="cursor: pointer;">{{item}}</span>
+
             </div>
 
           </div>
@@ -65,7 +45,7 @@
   </div>
   <div class="d-flex" style="flex-grow: 1;">
     <div class="header_main--search">
-      <input placeholder="Искать самокат KUGO">
+      <input placeholder="Искать платье">
     </div>
     <button class="header_main--search-btn btn">
       <img src="/assets/search.svg" />
@@ -89,9 +69,6 @@
       Доставка и оплата
     </span>
     <span>
-      Тест-драйв
-    </span>
-    <span>
       Блог
     </span>
     <span>
@@ -108,8 +85,20 @@
   <div class="container d-flex align-items-center">
     <img width="13px" src="/assets/home.svg" />
     <span style="cursor: pointer;" routerLink="/dashboard">Главная </span>
-    <ng-container *ngIf="url == '/catalog'">
-      <span>/</span> <span>Каталог</span><span>/</span> <span>Электросамокаты</span>
+    <ng-container *ngIf="url.includes('/catalog')">
+      <ng-container *ngFor="let item of service.breadcrump |async">
+        <span>/</span>
+        <span>{{catalog.tree[item]?.key}}</span>
+      </ng-container>
+
+    </ng-container>
+    <ng-container *ngIf="url.includes('/detail')">
+      <ng-container *ngFor="let item of service.breadcrump |async">
+        <span>/</span>
+        <span>{{catalog.tree[item]?.key}}</span>
+      </ng-container>
+      <span>/</span>
+      <span>Товар</span>
     </ng-container>
     <ng-container *ngIf="url == '/cart'">
       <span>/</span> <span>Моя корзина</span>
@@ -152,17 +141,8 @@
           <div class="col-6">
             <span class="title1">Каталог товаров</span>
             <div class="title2 d-flex flex-column">
-              <span>
-                Электросамокаты
-              </span>
-              <span>
-                Электроскутеры
-              </span>
-              <span>
-                Электровелосипеды
-              </span>
-              <span>
-                Электровелосипеды
+              <span *ngFor="let item of list()">
+                {{item}}
               </span>
             </div>
           </div>
@@ -173,7 +153,7 @@
                 <span>Сервисный центр</span>
                 <span>Доставка и оплата</span>
                 <span>Рассрочка</span>
-                <span>Тест-драйв</span>
+                <span>Вакансии</span>
               </div>
               <div class="col-6 d-flex flex-column">
                 <span>Блог</span>
@@ -247,7 +227,7 @@
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex">
         <span style="text-box: auto;" class="logo">
-          Kugoo
+          IBLOCKCMS
         </span>
         <img class="me-4" src="/assets/android.svg">
         <img src="/assets/apple.svg">

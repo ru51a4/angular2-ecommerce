@@ -1,7 +1,7 @@
 <div style="padding: 50px;" class="row">
   <div class="col-5 d-flex flex-column">
     <span class="title mb-5">
-      Закажите электросамокат Kugoo Kirin M4
+      Закажите <span>{{this.data.name}}</span>
     </span>
     <span class="title2 mb-5">
       Менеджер позвонит в течение 5 минут, чтобы уточнить детали вашего заказа.
@@ -22,7 +22,7 @@
   <div class="col-7 d-flex flex-column justify-content-center align-items-center">
     <div>
       <div class="price">29 900 ₽</div>
-      <img src="/assets/moto.jpg">
+      <img style="max-height: 400px;" [src]="pic()">
     </div>
   </div>
 </div>

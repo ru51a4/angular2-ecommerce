@@ -214,9 +214,10 @@
 
     .image {
         background-image: url('/assets/moto.jpg');
-        background-size: cover;
-        background-position: top;
+        background-size: contain;
+        background-position: bottom;
         height: 231px;
+        background-repeat: no-repeat;
     }
 }
 

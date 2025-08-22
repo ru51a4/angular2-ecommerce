@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { BuyModalComponent } from 'src/app/components/buy-modal/buy-modal.component';
 import { GlobalService } from 'src/app/global.service';
@@ -13,7 +13,25 @@ import { GlobalService } from 'src/app/global.service';
 export class DetailComponent {
 
   public allFilter = false;
-  constructor(public dialog: MatDialog, private router: Router, public service: GlobalService) {
+  public data: any = {}
+  constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, public service: GlobalService) {
+    const id = this.route.snapshot.params['id'];
+    this.service.getProduct(id).subscribe((data) => {
+      this.data = data;
+      this.data.props = Object.keys(this.data.prop).filter((key) => key !== 'DETAIL_PICTURE' && key !== 'photo')?.map((key) => {
+        return {
+          key: key, curr: true, val: Array.isArray(this.data.prop[key]) ? this.data.prop[key].map((c: any, i: any) => { return { title: c, curr: i == 0 } }) : [{ title: this.service.decodeHTMLEntities(this.data.prop[key]), curr: true }]
+        }
+      });
+
+    })
+  }
+
+  pic() {
+    return `https://iblockcms.mooo.com/${this.data.prop['DETAIL_PICTURE']}`
+  }
+  pphoto(url: any) {
+    return `https://iblockcms.mooo.com/${url}`
 
   }
   public arr = [
@@ -32,17 +50,26 @@ export class DetailComponent {
     this.arr[id].curr = true;
   }
   buyModal() {
-    let modal = this.dialog.open(BuyModalComponent, {
-      data: {},
-      hasBackdrop: true,
-      backdropClass: '_',
-      closeOnNavigation: true
-    });
-    this.service.modals.pipe(filter((t) => !!t)).subscribe(() => {
-      modal.close()
-      this.service.modals.next(false);
-    })
 
+    let id = this.data.id
+    this.service.getProduct(id).subscribe((data: any) => {
+
+      let modal = this.dialog.open(BuyModalComponent, {
+        data: data,
+        hasBackdrop: true,
+        backdropClass: '_',
+        closeOnNavigation: true
+      });
+      this.service.modals.pipe(filter((t) => !!t)).subscribe(() => {
+        modal.close()
+        this.service.modals.next(false);
+      })
+    });
   }
 
+
+  add() {
+    this.service.addToCard(this.data.id)
+    this.router.navigate(['/cart'])
+  }
 }

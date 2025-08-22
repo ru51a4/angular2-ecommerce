@@ -13,12 +13,12 @@ const routes: Routes = [{
       canActivate: [],
     },
     {
-      path: 'catalog',
+      path: 'catalog/:id',
       loadChildren: () => import('./pages/catalog/catalog.module').then(m => m.CatalogModule),
       canActivate: []
     },
     {
-      path: 'detail',
+      path: 'detail/:id',
       loadChildren: () => import('./pages/detail/detail.module').then(m => m.DetailModule),
       canActivate: []
     },

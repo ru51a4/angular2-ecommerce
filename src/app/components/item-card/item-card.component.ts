@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from "@angular/router";
@@ -15,21 +15,34 @@ export class ItemCardComponent {
 
   }
   public destroy$ = new Subject();
+  @Input() data: any;
+  detailimage() {
+    return `cursor: pointer; background-image: url('https://iblockcms.mooo.com${this.data.prop["DETAIL_PICTURE"]}');`;
+  }
+  ngOnInit() {
+    this.data.props = Object.keys(this.data.prop).filter((key) => !Array.isArray(this.data.prop[key]) && key !== 'DETAIL_PICTURE' && key !== 'photo')?.map((key) => {
+      return { key: key, val: this.service.decodeHTMLEntities(this.data.prop[key]) }
+    }).filter((c, i) => i < 3);
+  }
   buyModal() {
-    let modal = this.dialog.open(BuyModalComponent, {
-      data: {},
-      hasBackdrop: true,
-      backdropClass: '_',
-      closeOnNavigation: true
+    let id = this.data.id
+    this.service.getProduct(id).subscribe((data: any) => {
+      let modal = this.dialog.open(BuyModalComponent, {
+        data: data,
+        hasBackdrop: true,
+        backdropClass: '_',
+        closeOnNavigation: true
+      });
+      this.service.modals.pipe(filter((t) => !!t)).subscribe(() => {
+        modal.close()
+        this.service.modals.next(false);
+      })
+
     });
-    this.service.modals.pipe(filter((t) => !!t)).subscribe(() => {
-      modal.close()
-      this.service.modals.next(false);
-    })
 
   }
   detail() {
-    this.router.navigate(['/detail']);
+    this.router.navigate(['/detail', this.data.id]);
   }
 
 }
