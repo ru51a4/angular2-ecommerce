@@ -26,7 +26,12 @@ export class DetailComponent {
 
     })
   }
+  ngOnInit() {
+    const id = this.route.snapshot.params['catalogid'];
 
+    this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
+
+  }
   pic() {
     return `https://iblockcms.mooo.com/${this.data.prop['DETAIL_PICTURE']}`
   }

@@ -16,8 +16,16 @@ export class CatalogComponent {
 
   }
   ngOnInit() {
+    const id = this.route.snapshot.params['id'];
+
+    this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
+
     this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd),
     ).subscribe(() => {
+      const id = this.route.snapshot.params['id'];
+
+      this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
+
       this.fetch();
 
     })
@@ -31,7 +39,6 @@ export class CatalogComponent {
     const id = this.route.snapshot.params['id'];
 
     forkJoin([this.service.getProducts(id, 1), this.service.getProducts(id, 2)]).subscribe((d: any) => {
-      this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
 
       d[0].els = [...d[0].els, ...d[1].els];
       function decodeHTMLEntities(text: any) {

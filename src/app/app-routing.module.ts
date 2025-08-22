@@ -18,7 +18,7 @@ const routes: Routes = [{
       canActivate: []
     },
     {
-      path: 'detail/:id',
+      path: 'detail/:catalogid/:id',
       loadChildren: () => import('./pages/detail/detail.module').then(m => m.DetailModule),
       canActivate: []
     },

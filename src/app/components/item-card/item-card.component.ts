@@ -20,6 +20,7 @@ export class ItemCardComponent {
     return `cursor: pointer; background-image: url('https://iblockcms.mooo.com${this.data.prop["DETAIL_PICTURE"]}');`;
   }
   ngOnInit() {
+    console.log(this.data)
     this.data.props = Object.keys(this.data.prop).filter((key) => !Array.isArray(this.data.prop[key]) && key !== 'DETAIL_PICTURE' && key !== 'photo')?.map((key) => {
       return { key: key, val: this.service.decodeHTMLEntities(this.data.prop[key]) }
     }).filter((c, i) => i < 3);
@@ -42,7 +43,7 @@ export class ItemCardComponent {
 
   }
   detail() {
-    this.router.navigate(['/detail', this.data.id]);
+    this.router.navigate(['/detail', this.data.iblock_id, this.data.id]);
   }
 
 }
