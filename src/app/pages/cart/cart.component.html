@@ -7,11 +7,11 @@
 <div class="row mt-4 bbody">
     <div class="col-9">
 
-        <div *ngIf="arr.length == 0">
+        <div *ngIf="init && arr.length == 0">
             <h2>Корзина Пуста</h2>
         </div>
 
-        <div *ngIf="arr.length > 0" class="row header">
+        <div *ngIf="init && arr.length > 0" class="row header">
             <div class="col-4">
                 <span>Товар</span>
             </div>

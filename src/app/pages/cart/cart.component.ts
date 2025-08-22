@@ -13,6 +13,7 @@ import { GlobalService } from 'src/app/global.service';
 export class CartComponent {
 
   public arr: any = [];
+  public init = false;
   constructor(private router: Router, public service: GlobalService) {
     this.fetch();
     this.service.cart.subscribe(() => {
@@ -26,6 +27,7 @@ export class CartComponent {
     }
     forkJoin(arr.map((id: any) => this.service.getProduct(id))).subscribe((d: any) => {
       this.arr = d
+      this.init = true
       console.log({ d })
     })
   }
