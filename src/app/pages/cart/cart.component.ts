@@ -12,6 +12,8 @@ export class CartComponent {
 
   constructor(private router: Router) { }
 
+  public checkbox = false;
+
   cart2() {
     console.log(111)
     this.router.navigate(['/cart2'])

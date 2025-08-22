@@ -131,11 +131,12 @@
                 <label class="my-1" *ngIf="dirty && !valid()"
                     style="font-family: Jost;font-weight: 400;font-size: 12px;line-height: 14px; color:red;">Заполните
                     обязательные поля</label>
-                <button class="btn btn-buy" (click)="submit()" style="cursor: pointer; height: 50px; color: white;">
+                <button class="btn btn-buy" [disabled]="!checkbox" (click)="submit()"
+                    style="cursor: pointer; height: 50px; color: white;">
                     Подтвердить заказ
                 </button>
                 <div class="mt-3 d-flex">
-                    <input type="checkbox">
+                    <input [(ngModel)]="checkbox" type="checkbox">
                     <label class="ms-3 label1">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и
                         <span class="href">политикой конфиденциальности</span></label>
                 </div>

@@ -13,6 +13,8 @@ export class Cart2Component {
   constructor(private router: Router) {
 
   }
+  public checkbox = false;
+
   public curr1 = 1;
   public curr2 = 1;
   public dirty = false;

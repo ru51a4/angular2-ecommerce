@@ -15,6 +15,7 @@ export class BuyModalComponent {
   })
 
   constructor(private router: Router, public service: GlobalService) { }
+  public checkbox = false;
 
   public dirty = false;
 
@@ -23,7 +24,7 @@ export class BuyModalComponent {
   }
   go() {
     this.dirty = true;
-    if (this.valid()) {
+    if (this.valid() && this.checkbox) {
       this.service.modals.next(true);
       this.router.navigate(['/success'])
     }
