@@ -23,8 +23,14 @@ export class GlobalService {
     this.cart.next([...this.cart.getValue(), id])
     localStorage.setItem('cart', JSON.stringify(this.cart.getValue()))
   }
+  deleteToCardOne(id: any) {
+    let index = this.cart.getValue().indexOf(id)
+    this.cart.next([...this.cart.getValue().filter((c: any, i: any) => index != i)])
+    localStorage.setItem('cart', JSON.stringify(this.cart.getValue()))
+  }
   deleteToCard(id: any) {
-    this.cart.next([...this.cart.getValue().filter((c: any, i: any) => i != id)])
+    let val = this.cart.getValue()[id]
+    this.cart.next([...this.cart.getValue().filter((c: any, i: any) => c != val)])
     localStorage.setItem('cart', JSON.stringify(this.cart.getValue()))
   }
 

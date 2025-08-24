@@ -20,11 +20,29 @@ export class CartComponent {
       this.fetch();
     })
   }
+  public count: any = {};
+  public miuns(id: any) {
+    this.count[id]--;
+    this.service.deleteToCardOne(id)
+  }
+  public plus(id: any) {
+    this.count[id]++;
+    this.service.addToCard(id);
+  }
+
   fetch() {
+    this.count = {};
     let arr = this.service.cart.getValue()
     if (!arr.length) {
       this.arr = [];
     }
+    for (let i = 0; i <= arr.length - 1; i++) {
+      if (!this.count[arr[i]]) {
+        this.count[arr[i]] = 0;
+      }
+      this.count[arr[i]]++;
+    }
+    arr = Object.keys(this.count).map(Number);
     forkJoin(arr.map((id: any) => this.service.getProduct(id))).subscribe((d: any) => {
       this.arr = d
       this.init = true
