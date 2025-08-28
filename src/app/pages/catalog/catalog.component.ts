@@ -24,7 +24,7 @@ export class CatalogComponent {
     ).subscribe(() => {
       const id = this.route.snapshot.params['id'];
 
-      this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
+      this.service.breadcrump.next(this.service.catalog.getValue().tree?.[id]?.path);
 
       this.fetch();
 

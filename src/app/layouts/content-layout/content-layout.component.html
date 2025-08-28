@@ -88,14 +88,21 @@
     <ng-container *ngIf="url.includes('/catalog')">
       <ng-container *ngFor="let item of service.breadcrump |async">
         <span>/</span>
-        <span style="cursor: pointer;" (click)="go(catalog.tree[item]?.key)">{{catalog.tree[item]?.key}}</span>
+        <span *ngIf="!childIds.includes(item)">{{raw.tree[item]?.key}}</span>
+
+        <span *ngIf="childIds.includes(item)" style="cursor: pointer;"
+          (click)="go(raw.tree[item]?.key)">{{raw.tree[item]?.key}}</span>
+
       </ng-container>
 
     </ng-container>
     <ng-container *ngIf="url.includes('/detail')">
       <ng-container *ngFor="let item of service.breadcrump |async">
         <span>/</span>
-        <span style="cursor: pointer;" (click)="go(catalog.tree[item]?.key)">{{catalog.tree[item]?.key}}</span>
+        <span *ngIf="!childIds.includes(item)">{{raw.tree[item]?.key}}</span>
+
+        <span *ngIf="childIds.includes(item)" style="cursor: pointer;"
+          (click)="go(raw.tree[item]?.key)">{{raw.tree[item]?.key}}</span>
       </ng-container>
     </ng-container>
     <ng-container *ngIf="url == '/cart'">

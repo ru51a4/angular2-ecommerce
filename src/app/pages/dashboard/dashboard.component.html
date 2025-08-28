@@ -1,6 +1,6 @@
 <div class="header mt-4 row d-flex">
     <div class="col-6">
-        <span>{{catalog.tree?.[1]?.key}}</span>
+        <span>{{(service.catalog)['tree']?.[1]?.key | async}}</span>
     </div>
     <div class="col-6 d-flex justify-content-end">
         <button class="btn">
@@ -19,12 +19,12 @@
 </div>
 <div class="mt-5 d-flex justify-content-center flex-column align-items-center catalog">
     <div class="d-flex flex-wrap">
-        <ng-container *ngFor="let item of els; let i = index">
+        <ng-container *ngFor="let item of service.els | async; let i = index">
             <app-item-card *ngIf="i < 4" [data]="item"></app-item-card>
         </ng-container>
     </div>
     <div class="d-flex mt-4 flex-wrap">
-        <ng-container *ngFor="let item of els; let i = index">
+        <ng-container *ngFor="let item of service.els | async; let i = index">
             <app-item-card *ngIf="i >= 4 && i < 8" [data]="item"></app-item-card>
         </ng-container>
     </div>
