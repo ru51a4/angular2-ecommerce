@@ -39,9 +39,11 @@
         </div>
     </div>
     <div class="col-9 d-flex flex-column align-items-end justify-content-center">
-        <div class="d-flex w-100 flex-wrap">
+        <div class="row">
             <ng-container *ngFor="let item of els; let i = index">
-                <app-item-card [data]="item"></app-item-card>
+                <div class="col-4 d-flex justify-content-end">
+                    <app-item-card [data]="item"></app-item-card>
+                </div>
             </ng-container>
         </div>
     </div>
