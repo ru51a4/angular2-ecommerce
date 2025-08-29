@@ -59,7 +59,7 @@ export class DetailComponent {
 
     let id = this.data.id
     this.service.getProduct(id).subscribe((data: any) => {
-
+      this.service.currentDetailTitle.next(data.name)
       let modal = this.dialog.open(BuyModalComponent, {
         data: data,
         hasBackdrop: true,

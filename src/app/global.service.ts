@@ -21,7 +21,7 @@ export class GlobalService {
   public els: any = new BehaviorSubject([]);
   public childsId: any = new BehaviorSubject([]);
   public childsIds: any = new BehaviorSubject([]);
-
+  public currentDetailTitle: any = new BehaviorSubject('')
 
   public cart: any = new BehaviorSubject([]);
   addToCard(id: any) {
