@@ -16,6 +16,7 @@ export class DetailComponent {
   public data: any = {}
   constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, public service: GlobalService) {
     const id = this.route.snapshot.params['id'];
+
     this.service.getProduct(id).subscribe((data: any) => {
       this.data = data;
       this.service.currentDetailTitle.next(data.name)
@@ -30,12 +31,19 @@ export class DetailComponent {
   }
   ngOnInit() {
     const id = this.route.snapshot.params['catalogid'];
+    this.service.catalog.subscribe((d: any) => {
+      const catalogId = this.route.snapshot.params['catalogid'];
+      this.service.breadcrump.next(d.tree[Number(catalogId)].path);
 
-    this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
+    })
+
+    const catalogId = this.route.snapshot.params['catalogid'];
+    this.service.breadcrump.next(this.service.catalog.getValue()?.tree?.[Number(catalogId)]?.path);
+
 
   }
   pic() {
-    return `https://iblockcms.mooo.com/${this.data.prop['DETAIL_PICTURE']}`
+    return `https://iblockcms.mooo.com/${this.data.prop?.['DETAIL_PICTURE']}`
   }
   pphoto(url: any) {
     return `https://iblockcms.mooo.com/${url}`
@@ -78,5 +86,8 @@ export class DetailComponent {
   add() {
     this.service.addToCard(this.data.id)
     this.router.navigate(['/cart'])
+  }
+  ngOnDesroy() {
+    this.service.currentDetailTitle.next(null)
   }
 }

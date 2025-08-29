@@ -104,8 +104,10 @@
         <span *ngIf="childIds.includes(item)" style="cursor: pointer;"
           (click)="go(raw.tree[item]?.key)">{{raw.tree[item]?.key}}</span>
       </ng-container>
-      <span>/</span>
-      <span>{{service.currentDetailTitle | async}}</span>
+      <ng-container *ngIf="service.currentDetailTitle | async">
+        <span>/</span>
+        <span>{{service.currentDetailTitle | async}}</span>
+      </ng-container>
     </ng-container>
     <ng-container *ngIf="url == '/cart'">
       <span>/</span> <span>Моя корзина</span>
