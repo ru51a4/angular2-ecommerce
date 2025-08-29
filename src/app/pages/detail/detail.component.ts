@@ -16,8 +16,10 @@ export class DetailComponent {
   public data: any = {}
   constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, public service: GlobalService) {
     const id = this.route.snapshot.params['id'];
-    this.service.getProduct(id).subscribe((data) => {
+    this.service.getProduct(id).subscribe((data: any) => {
       this.data = data;
+      this.service.currentDetailTitle.next(data.name)
+
       this.data.props = Object.keys(this.data.prop).filter((key) => key !== 'DETAIL_PICTURE' && key !== 'photo')?.map((key) => {
         return {
           key: key, curr: true, val: Array.isArray(this.data.prop[key]) ? this.data.prop[key].map((c: any, i: any) => { return { title: c, curr: i == 0 } }) : [{ title: this.service.decodeHTMLEntities(this.data.prop[key]), curr: true }]
@@ -59,7 +61,6 @@ export class DetailComponent {
 
     let id = this.data.id
     this.service.getProduct(id).subscribe((data: any) => {
-      this.service.currentDetailTitle.next(data.name)
       let modal = this.dialog.open(BuyModalComponent, {
         data: data,
         hasBackdrop: true,
