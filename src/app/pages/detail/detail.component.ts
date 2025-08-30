@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter } from 'rxjs';
@@ -10,7 +10,7 @@ import { GlobalService } from 'src/app/global.service';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
 })
-export class DetailComponent {
+export class DetailComponent implements OnDestroy {
 
   public allFilter = false;
   public data: any = {}
@@ -87,7 +87,9 @@ export class DetailComponent {
     this.service.addToCard(this.data.id)
     this.router.navigate(['/cart'])
   }
-  ngOnDesroy() {
+  ngOnDestroy(): void {
     this.service.currentDetailTitle.next(null)
+    this.service.breadcrump.next(null)
   }
+
 }

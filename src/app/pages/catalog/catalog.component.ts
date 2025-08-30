@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, forkJoin } from 'rxjs';
 import { GlobalService } from 'src/app/global.service';
@@ -8,7 +8,7 @@ import { GlobalService } from 'src/app/global.service';
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
 })
-export class CatalogComponent {
+export class CatalogComponent implements OnDestroy {
 
   public allFilter = false;
   public els: any = [];
@@ -72,5 +72,9 @@ export class CatalogComponent {
   }
   toggle() {
     this.allFilter = true;
+  }
+
+  ngOnDestroy(): void {
+    this.service.breadcrump.next(null);
   }
 }

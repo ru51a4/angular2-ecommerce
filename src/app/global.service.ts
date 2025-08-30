@@ -15,7 +15,7 @@ export class GlobalService {
   }
   public apiUrl = 'https://iblockcms.mooo.com/api'
   modals = new BehaviorSubject(false);
-  public breadcrump = new BehaviorSubject([])
+  public breadcrump: any = new BehaviorSubject([])
   user = new BehaviorSubject<any>({});
   public catalog: any = new BehaviorSubject({ tree: {} });
   public els: any = new BehaviorSubject([]);
