@@ -47,10 +47,14 @@
     <div style="position: relative;" class="header_main--search">
       <input [(ngModel)]="serachString" (ngModelChange)="find($event)" placeholder="Искать платье">
       <div *ngIf="serachString && serachRes.length"
-        style="z-index: 999; margin-top: 10px; position: absolute;width: 100%;border: 1.5px solid rgb(111, 115, 238);background: white; padding: 10px;">
-        <div class="mb-2" *ngFor="let item of serachRes" (click)="go2(item['id'], item['iblock_id'])"
-          style="cursor: pointer;"><img class="me-4" [src]="pict(item['prop']['DETAIL_PICTURE'])"
-            height="50px"><span>{{item.name}}</span></div>
+        style="z-index: 999; margin-top: 10px; position: absolute;width: 100%;border: 1.5px solid rgb(111, 115, 238);background: white; padding: 10px; padding-bottom: 0px;">
+        <div class="mb-3 d-flex align-items-center" *ngFor="let item of serachRes"
+          (click)="go2(item['id'], item['iblock_id'])" style="cursor: pointer;">
+          <div class="col-1 d-flex justify-content-center align-items-center">
+            <img class="me-4" [src]="pict(item['prop']['DETAIL_PICTURE'])" height="35px">
+          </div>
+          <span class="col-11">{{item.name}}</span>
+        </div>
       </div>
     </div>
     <button class="header_main--search-btn btn">
