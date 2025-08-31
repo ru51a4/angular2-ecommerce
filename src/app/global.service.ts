@@ -114,7 +114,10 @@ export class GlobalService {
       this.childsId.next(r);
       this.catalog.next(catalog);
       this.childsIds.next(rr);
-      return forkJoin(rr.sort(() => .5 - Math.random()).map((c) => this.getProducts(c, 1)));
+      return forkJoin([
+        ...rr.sort(() => .5 - Math.random()).map((c) => this.getProducts(c, 1)),
+        ...rr.sort(() => .5 - Math.random()).map((c) => this.getProducts(c, 2))
+      ]);
     })).subscribe((data: any) => {
       let _slugs: any = {};
       let els = [];
