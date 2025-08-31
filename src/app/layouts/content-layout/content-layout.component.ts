@@ -79,8 +79,7 @@ export class ContentLayoutComponent {
   public serachRes: any = [];
   public serachString = '';
   find(val: any) {
-    this.serachString = val.target.value;
-    this.service.find(val.target.value).subscribe((data: any) => {
+    this.service.find(this.serachString).subscribe((data: any) => {
       this.serachRes = data.filter((c: any, i: any) => i <= 5);
 
     })
