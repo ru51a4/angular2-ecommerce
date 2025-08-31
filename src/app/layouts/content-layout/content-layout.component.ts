@@ -22,6 +22,8 @@ export class ContentLayoutComponent {
       this.url = this.router.url;
       this.catalog_popup = false;
       this.document.defaultView?.scrollTo({ top: 0, behavior: 'smooth' });
+      this.serachRes = [];
+      this.serachString = '';
     })
     this.service.childsIds.subscribe((d: any) => {
       this.childIds = d.map(Number);
@@ -66,10 +68,26 @@ export class ContentLayoutComponent {
     this.catalog_popup = !this.catalog_popup;
   }
 
+  go2(id: any, iblock_id: any) {
+    this.router.navigate(['/detail', iblock_id, id])
+  }
   go(title: any) {
     let r: any = Object.values(this.raw.tree).filter((c: any) => c).find((c: any) => c.key == title);
     r = r.path[r.path.length - 1];
     this.router.navigate(['/catalog', r])
+  }
+  public serachRes: any = [];
+  public serachString = '';
+  find(val: any) {
+    this.serachString = val.target.value;
+    this.service.find(val.target.value).subscribe((data: any) => {
+      this.serachRes = data.filter((c: any, i: any) => i <= 5);
+
+    })
+
+  }
+  pict(a: any) {
+    return `https://iblockcms.mooo.com/${a}`
   }
 
 }
