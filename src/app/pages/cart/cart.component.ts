@@ -43,6 +43,10 @@ export class CartComponent {
       this.count[arr[i]]++;
     }
     arr = Object.keys(this.count).map(Number);
+    if (!arr.length) {
+      this.init = true
+
+    }
     forkJoin(arr.map((id: any) => this.service.getProduct(id))).subscribe((d: any) => {
       this.arr = d.sort((a: any, b: any) => a.id - b.id)
       console.log({ dd: this.arr })
