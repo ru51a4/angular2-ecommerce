@@ -16,23 +16,25 @@ export class CatalogComponent implements OnDestroy {
 
   }
   ngOnInit() {
-    this.service.globalFetch();
+    this.service.globalFetch().subscribe(() => {
 
-    let id = this.route.snapshot.params['id'];
-    id = this.service.slugs.getValue()[id]
-
-    this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
-
-    this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd),
-    ).subscribe(() => {
       let id = this.route.snapshot.params['id'];
       id = this.service.slugs.getValue()[id]
-      this.service.breadcrump.next(this.service.catalog.getValue().tree?.[id]?.path);
 
+      this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
+
+      this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      ).subscribe(() => {
+        let id = this.route.snapshot.params['id'];
+        id = this.service.slugs.getValue()[id]
+        this.service.breadcrump.next(this.service.catalog.getValue().tree?.[id]?.path);
+
+        this.fetch();
+
+      })
       this.fetch();
 
-    })
-    this.fetch();
+    });
   }
   public props: any = [];
   public values: any = [];
