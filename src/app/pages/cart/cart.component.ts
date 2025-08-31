@@ -44,7 +44,8 @@ export class CartComponent {
     }
     arr = Object.keys(this.count).map(Number);
     forkJoin(arr.map((id: any) => this.service.getProduct(id))).subscribe((d: any) => {
-      this.arr = d
+      this.arr = d.sort((a: any, b: any) => a.id - b.id)
+      console.log({ dd: this.arr })
       this.init = true
       console.log({ d })
     })
