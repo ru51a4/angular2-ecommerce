@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { BuyModalComponent } from 'src/app/components/buy-modal/buy-modal.component';
 import { GlobalService } from 'src/app/global.service';
@@ -17,7 +17,7 @@ export class ContentLayoutComponent {
   public dd: any = [];
   public childIds: any = [];
   public raw: any = {};
-  constructor(private router: Router, @Inject(DOCUMENT) private document: Document, public service: GlobalService) {
+  constructor(private router: Router, @Inject(DOCUMENT) private document: Document, public service: GlobalService, private route: ActivatedRoute) {
     this.router.events.subscribe(() => {
       this.url = this.router.url;
       this.catalog_popup = false;
@@ -69,7 +69,9 @@ export class ContentLayoutComponent {
   }
 
   go2(id: any, iblock_id: any) {
-    this.router.navigate(['/detail', iblock_id, id])
+    this.router.navigate(['/detail', iblock_id, id], {
+      relativeTo: this.route,
+    });
   }
   go(title: any) {
     let r: any = Object.values(this.raw.tree).filter((c: any) => c).find((c: any) => c.key == title);

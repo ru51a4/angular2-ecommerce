@@ -16,7 +16,16 @@ export class DetailComponent implements OnDestroy {
   public data: any = {}
   constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, public service: GlobalService) {
     const id = this.route.snapshot.params['id'];
+    this.route.paramMap.subscribe(params => {
+      let id = params.get('id');
+      this.fetch(id)
+      // Загрузите данные на основе нового ID
+    });
+    this.fetch(id)
 
+
+  }
+  fetch(id: any) {
     this.service.getProduct(id).subscribe((data: any) => {
       this.data = data;
       this.service.currentDetailTitle.next(data.name)
@@ -28,6 +37,7 @@ export class DetailComponent implements OnDestroy {
       });
 
     })
+
   }
   ngOnInit() {
     const id = this.route.snapshot.params['catalogid'];
