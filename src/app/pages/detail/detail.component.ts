@@ -18,14 +18,15 @@ export class DetailComponent implements OnDestroy {
     const id = this.route.snapshot.params['id'];
     this.route.paramMap.subscribe(params => {
       let id = params.get('id');
-      this.fetch(id)
+      let catalogId = params.get('catalogid')
+      this.fetch(id, catalogId)
       // Загрузите данные на основе нового ID
     });
     this.fetch(id)
 
 
   }
-  fetch(id: any) {
+  fetch(id: any, catalogId: any = null) {
     this.service.getProduct(id).subscribe((data: any) => {
       this.data = data;
       this.service.currentDetailTitle.next(data.name)
@@ -35,7 +36,9 @@ export class DetailComponent implements OnDestroy {
           key: key, curr: true, val: Array.isArray(this.data.prop[key]) ? this.data.prop[key].map((c: any, i: any) => { return { title: c, curr: i == 0 } }) : [{ title: this.service.decodeHTMLEntities(this.data.prop[key]), curr: true }]
         }
       });
-
+      if (catalogId) {
+        this.service.breadcrump.next(this.service.catalog.getValue()?.tree?.[Number(catalogId)]?.path);
+      }
     })
 
   }
