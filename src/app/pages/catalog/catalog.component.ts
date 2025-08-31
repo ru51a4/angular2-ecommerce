@@ -16,14 +16,17 @@ export class CatalogComponent implements OnDestroy {
 
   }
   ngOnInit() {
-    const id = this.route.snapshot.params['id'];
+    this.service.globalFetch();
+
+    let id = this.route.snapshot.params['id'];
+    id = this.service.slugs.getValue()[id]
 
     this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
 
     this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd),
     ).subscribe(() => {
-      const id = this.route.snapshot.params['id'];
-
+      let id = this.route.snapshot.params['id'];
+      id = this.service.slugs.getValue()[id]
       this.service.breadcrump.next(this.service.catalog.getValue().tree?.[id]?.path);
 
       this.fetch();
@@ -36,7 +39,8 @@ export class CatalogComponent implements OnDestroy {
   fetch() {
     this.props = [];
     this.values = [];
-    const id = this.route.snapshot.params['id'];
+    let id = this.route.snapshot.params['id'];
+    id = this.service.slugs.getValue()[id]
 
     forkJoin([this.service.getProducts(id, 1), this.service.getProducts(id, 2)]).subscribe((d: any) => {
 

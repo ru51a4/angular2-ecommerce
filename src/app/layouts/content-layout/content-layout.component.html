@@ -34,7 +34,8 @@
         <div class="right">
           <div class="row">
             <div class="col-6 d-flex flex-column">
-              <span *ngFor="let item of dd; let i = index;" (click)="go(item)" style="cursor: pointer;">{{item}}</span>
+              <span *ngFor="let item of dd; let i = index;" (click)="go(item.slug[item.slug.length-1])"
+                style="cursor: pointer;">{{item.key}}</span>
 
             </div>
 
@@ -101,7 +102,7 @@
         <span *ngIf="!childIds.includes(item)">{{raw.tree[item]?.key}}</span>
 
         <span *ngIf="childIds.includes(item)" style="cursor: pointer;"
-          (click)="go(raw.tree[item]?.key)">{{raw.tree[item]?.key}}</span>
+          (click)="go(raw.tree[item]?.slug[raw.tree[item]?.slug.length-1])">{{raw.tree[item]?.key}}</span>
 
       </ng-container>
 
@@ -112,7 +113,7 @@
         <span *ngIf="!childIds.includes(item)">{{raw.tree[item]?.key}}</span>
 
         <span *ngIf="childIds.includes(item)" style="cursor: pointer;"
-          (click)="go(raw.tree[item]?.key)">{{raw.tree[item]?.key}}</span>
+          (click)="go(raw.tree[item]?.slug[raw.tree[item]?.slug.length-1])">{{raw.tree[item]?.key}}</span>
       </ng-container>
       <ng-container *ngIf="service.currentDetailTitle | async">
         <span>/</span>

@@ -15,18 +15,11 @@ export class DetailComponent implements OnDestroy {
   public allFilter = false;
   public data: any = {}
   constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, public service: GlobalService) {
-    const id = this.route.snapshot.params['id'];
-    this.route.paramMap.subscribe(params => {
-      let id = params.get('id');
-      let catalogId = params.get('catalogid')
-      this.fetch(id, catalogId)
-      // Загрузите данные на основе нового ID
-    });
-    this.fetch(id)
 
 
   }
   fetch(id: any, catalogId: any = null) {
+    console.log({ id, catalogId, aa: this.service.slugs.getValue() })
     this.service.getProduct(id).subscribe((data: any) => {
       this.data = data;
       this.service.currentDetailTitle.next(data.name)
@@ -43,15 +36,34 @@ export class DetailComponent implements OnDestroy {
 
   }
   ngOnInit() {
-    const id = this.route.snapshot.params['catalogid'];
-    this.service.catalog.subscribe((d: any) => {
-      const catalogId = this.route.snapshot.params['catalogid'];
-      this.service.breadcrump.next(d.tree[Number(catalogId)].path);
+    this.service.globalFetch().subscribe(() => {
+      let id = this.route.snapshot.params['id'];
+      id = this.service.slugels.getValue()[id];
+
+      this.route.paramMap.subscribe(params => {
+        let id: any = params.get('id');
+        id = this.service.slugels.getValue()[id];
+        let catalogId: any = params.get('catalogid')
+        catalogId = this.service.slugs.getValue()[catalogId]
+        this.fetch(id, catalogId)
+        // Загрузите данные на основе нового ID
+      });
+      this.fetch(id)
+
+      this.service.catalog.subscribe((d: any) => {
+        let catalogId: any = this.route.snapshot.params['catalogid'];
+        catalogId = this.service.slugs.getValue()[catalogId];
+
+        this.service.breadcrump.next(d.tree[Number(catalogId)].path);
+
+      })
+
+      let catalogId: any = this.route.snapshot.params['catalogid'];
+      catalogId = this.service.slugs.getValue()[catalogId];
+
+      this.service.breadcrump.next(this.service.catalog.getValue()?.tree?.[Number(catalogId)]?.path);
 
     })
-
-    const catalogId = this.route.snapshot.params['catalogid'];
-    this.service.breadcrump.next(this.service.catalog.getValue()?.tree?.[Number(catalogId)]?.path);
 
 
   }

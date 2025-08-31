@@ -65,19 +65,34 @@ export class GlobalService {
       return entities[match] || match;
     });
   }
+  public slugs: any = new BehaviorSubject(null);
+  public slugels: any = new BehaviorSubject({});
+
   globalFetch() {
+    let _await = new Subject();
+
+    if (this.slugs.getValue()) {
+      setTimeout(() => {
+        _await.next(true);
+      }, 0)
+      return _await
+    }
+    let _slugs: any = {};
     this.getProducts(1, 1).pipe(switchMap((data: any) => {
       let t = data.tree
       let catalog: any = { "tree": {} };
-      let dfs = (node: any) => {
+      let dfs = (node: any, id: any = null) => {
+        _slugs[node.slug[node.slug.length - 1]] = Number(id) ?? null
         for (let key in node) {
           if (node[key]['key']) {
             catalog.tree[key] = node[key];
-            dfs(node[key]);
+            dfs(node[key], key);
           }
         }
       }
+      _slugs['catalog'] = 1;
       dfs(t[1])
+      this.slugs.next(_slugs)
       catalog.tree[1] = t[1];
       let r = [];
       let rr = [];
@@ -101,14 +116,20 @@ export class GlobalService {
       this.childsIds.next(rr);
       return forkJoin(rr.sort(() => .5 - Math.random()).map((c) => this.getProducts(c, 1)));
     })).subscribe((data: any) => {
+      let _slugs: any = {};
       let els = [];
       for (let i = 0; i <= data.length - 1; i++) {
         els.push(...data[i].els)
       }
+      els.forEach((item: any) => {
+        _slugs[item.slug] = Number(item.id) ?? null
+      })
+      this.slugels.next(_slugs)
       els = els.filter((c: any, i: any) => i <= 7)
       this.els.next(els);
-
+      _await.next(true)
     });
+    return _await;
 
   }
   find(str: any) {
