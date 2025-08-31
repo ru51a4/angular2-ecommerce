@@ -34,8 +34,9 @@ export class GlobalService {
     localStorage.setItem('cart', JSON.stringify(this.cart.getValue()))
   }
   deleteToCard(id: any) {
-    let val = this.cart.getValue()[id]
-    this.cart.next([...this.cart.getValue().filter((c: any, i: any) => c != val)])
+    console.log({ id, d: this.cart.getValue() })
+    let nnew = this.cart.getValue().filter((c: any, i: any) => c != id);
+    this.cart.next([...nnew])
     localStorage.setItem('cart', JSON.stringify(this.cart.getValue()))
   }
 
@@ -114,4 +115,6 @@ export class GlobalService {
     return this.http.get(this.apiUrl + `/index2/${str}`)
   }
 }
+
+
 
