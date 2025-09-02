@@ -99,13 +99,13 @@ export class DetailComponent implements OnDestroy {
     return `https://iblockcms.mooo.com/${this.data.prop?.['DETAIL_PICTURE']}`
   }
   pphoto() {
-    return this.data.prop['photo'].map((c: any) => {
+    return this.data.prop?.['photo']?.map((c: any) => {
       return {
         small: 'https://iblockcms.mooo.com/' + c,
         medium: 'https://iblockcms.mooo.com/' + c,
         big: 'https://iblockcms.mooo.com/' + c,
       }
-    });
+    }) ?? [];
   }
   public arr = [
     {
