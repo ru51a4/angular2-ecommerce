@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^15.2.10",
     "@angular/platform-server": "^15.2.10",
     "@angular/router": "^15.2.10",
+    "@kolkov/ngx-gallery": "^1.0.9",
     "@ngrx/effects": "^15.0.0",
     "@ngrx/store": "^15.0.0",
     "@nguniversal/express-engine": "^15.2.1",

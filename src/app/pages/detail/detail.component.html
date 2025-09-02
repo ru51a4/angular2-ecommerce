@@ -1,13 +1,16 @@
 <div class="row">
     <div class="col-6">
+
         <div class="d-flex justify-content-center">
-            <img class="itemImage" [src]="pic()">
+            <ng-container *ngIf="pphoto().length">
+                <ngx-gallery [options]="galleryOptions" [images]="pphoto()" class="ngx-gallery"></ngx-gallery>
+            </ng-container>
+            <ng-container *ngIf="!pphoto().length">
+                <img class="itemImage" [src]="pic()">
+            </ng-container>
         </div>
         <div *ngIf="false" class="photo mt-2 d-flex mt-3 flex-wrap">
             <div class="d-flex w-100 justify-content-start">
-                <ng-container *ngFor="let photo of data.prop['photo']">
-                    <img class="mt-4 me-2" height="90px" [src]="pphoto(photo)">
-                </ng-container>
             </div>
             <div *ngIf="false" class="d-flex">
                 <img width="73px" src="/assets/21.png">

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxGalleryAnimation } from '@kolkov/ngx-gallery';
 import { filter } from 'rxjs';
 import { BuyModalComponent } from 'src/app/components/buy-modal/buy-modal.component';
 import { GlobalService } from 'src/app/global.service';
@@ -67,12 +68,44 @@ export class DetailComponent implements OnDestroy {
 
 
   }
+  public galleryOptions = [
+    {
+      width: '900px',
+      height: '600px',
+      thumbnailsColumns: 5,
+      imageAnimation: NgxGalleryAnimation.Slide,
+      lazyLoading: false,
+      thumbnailsPercent: 20
+    },
+    // max-width 800
+    {
+      breakpoint: 800,
+      width: '100%',
+      height: '600px',
+      imagePercent: 80,
+      thumbnailsPercent: 20,
+      thumbnailsMargin: 20,
+      thumbnailMargin: 20
+    },
+    // max-width 400
+    {
+      breakpoint: 400,
+      preview: false
+    }
+  ];
+
+
   pic() {
     return `https://iblockcms.mooo.com/${this.data.prop?.['DETAIL_PICTURE']}`
   }
-  pphoto(url: any) {
-    return `https://iblockcms.mooo.com/${url}`
-
+  pphoto() {
+    return this.data.prop['photo'].map((c: any) => {
+      return {
+        small: 'https://iblockcms.mooo.com/' + c,
+        medium: 'https://iblockcms.mooo.com/' + c,
+        big: 'https://iblockcms.mooo.com/' + c,
+      }
+    });
   }
   public arr = [
     {

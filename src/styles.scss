@@ -221,6 +221,19 @@
     }
 }
 
+.ngx-gallery {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.ngx-gallery-image {
+    background-size: contain !important;
+}
+
+.ngx-gallery-thumbnail {
+    background-size: contain !important;
+}
+
 .price {
     font-family: Jost;
     font-weight: 600;

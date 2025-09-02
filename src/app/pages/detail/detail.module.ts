@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ItemCardComponent } from 'src/app/components/item-card/item-card.component';
 import { SharedModule } from 'src/app/shared.module';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SharedModule } from 'src/app/shared.module';
     DetailRoutingModule,
     FormsModule,
     SharedModule,
+    NgxGalleryModule
   ]
 })
 export class DetailModule {
