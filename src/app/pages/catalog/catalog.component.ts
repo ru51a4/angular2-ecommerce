@@ -28,7 +28,7 @@ export class CatalogComponent implements OnDestroy {
         let id = this.route.snapshot.params['id'];
         id = this.service.slugs.getValue()[id]
         this.service.breadcrump.next(this.service.catalog.getValue().tree?.[id]?.path);
-
+        this.currentCategoryId = id;
         this.fetch();
 
       })
@@ -38,13 +38,13 @@ export class CatalogComponent implements OnDestroy {
   }
   public props: any = [];
   public values: any = [];
-  fetch() {
-    this.props = [];
-    this.values = [];
+  public propsId: any = [];
+  public currentCategoryId = []
+  fetch(where: any = []) {
     let id = this.route.snapshot.params['id'];
     id = this.service.slugs.getValue()[id]
 
-    forkJoin([this.service.getProducts(id, 1), this.service.getProducts(id, 2)]).subscribe((d: any) => {
+    forkJoin([this.service.getProductsFilter(id, 1, where), this.service.getProductsFilter(id, 2, where)]).subscribe((d: any) => {
 
       d[0].els = [...d[0].els, ...d[1].els];
       function decodeHTMLEntities(text: any) {
@@ -61,20 +61,45 @@ export class CatalogComponent implements OnDestroy {
           return entities[match] || match;
         });
       }
+      this.els = d[0].els;
 
+      if (this.currentCategoryId === id) {
+        return
+      }
+      this.allFilter = false;
+      this.props = [];
+      this.values = [];
+      this.propsId = [];
 
+      this.currentCategoryId = id;
       this.props = d[0].props.res.map((c: any) => c.name);
       Object.values(d[0].props.values).forEach((arr: any) => {
         arr.forEach((d: any) => {
           if (!this.values[d.name]) {
             this.values[d.name] = []
           }
-          this.values[d.name].push(decodeHTMLEntities(d.value))
+          this.values[d.name].push({ title: decodeHTMLEntities(d.value), "val": false, "id": d.id })
         })
       });
-      console.log(this.values)
-      this.els = d[0].els;
+      d[0].props.res.forEach((d: any) => {
+        this.propsId[d.name] = d.id;
+      });
     });
+  }
+  ffilter() {
+    let key = Object.keys(this.values).filter((c) => c != 'photo' && c != 'DETAIL_PICTURE');
+    let where: any = {};
+    for (let i = 0; i <= key.length - 1; i++) {
+      let t: any = [];
+      this.values[key[i]].filter((c: any) => c.val).forEach((val: any) => {
+        console.log({ val })
+        if (!where[this.propsId[key[i]]]) {
+          where[this.propsId[key[i]]] = [];
+        }
+        where[this.propsId[key[i]]].push(val.id)
+      });
+    }
+    this.fetch(where)
   }
   toggle() {
     this.allFilter = true;

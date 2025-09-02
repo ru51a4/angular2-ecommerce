@@ -46,7 +46,10 @@ export class GlobalService {
   }
   getProducts(sectionId: any, page: any) {
     return this.http.get(`${this.apiUrl}/index/${sectionId}/${page}`)
+  }
 
+  getProductsFilter(sectionId: any, page: any, filter: any) {
+    return this.http.post(`${this.apiUrl}/filter/${sectionId}/${page}`, { filter })
   }
   getProduct(id: any) {
     return this.http.get(`${this.apiUrl}/detail/${id}`)
