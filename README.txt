@@ -10,5 +10,6 @@ demo(iblockcms) todo:
 переписать обращения к апи. сделать ручки с slug.
 настроить роутитинг - hierarchy slug + slug filter.
 разобраться с SSR.
+цены и range slider в каталоге.
 адаптивность.
  
