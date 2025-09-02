@@ -20,6 +20,7 @@ export class CatalogComponent implements OnDestroy {
 
       let id = this.route.snapshot.params['id'];
       id = this.service.slugs.getValue()[id]
+      this.currentCategoryId = id;
 
       this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
 
@@ -28,7 +29,6 @@ export class CatalogComponent implements OnDestroy {
         let id = this.route.snapshot.params['id'];
         id = this.service.slugs.getValue()[id]
         this.service.breadcrump.next(this.service.catalog.getValue().tree?.[id]?.path);
-        this.currentCategoryId = id;
         this.fetch();
 
       })
