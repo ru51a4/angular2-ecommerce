@@ -16,12 +16,13 @@ export class CatalogComponent implements OnDestroy {
 
   }
   ngOnInit() {
+
+    let id = this.route.snapshot.params['id'];
+    id = this.service.slugs.getValue()[id]
+    this.currentCategoryId = id;
+
+
     this.service.globalFetch().subscribe(() => {
-
-      let id = this.route.snapshot.params['id'];
-      id = this.service.slugs.getValue()[id]
-      this.currentCategoryId = id;
-
       this.service.breadcrump.next(this.service.catalog.getValue().tree[id].path);
 
       this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd),
@@ -39,6 +40,7 @@ export class CatalogComponent implements OnDestroy {
   public props: any = [];
   public values: any = [];
   public propsId: any = [];
+  public init = false;
   public currentCategoryId = []
   fetch(where: any = []) {
     let id = this.route.snapshot.params['id'];
@@ -62,10 +64,11 @@ export class CatalogComponent implements OnDestroy {
         });
       }
       this.els = d[0].els;
-
-      if (this.currentCategoryId === id) {
+      console.log({ d: this.currentCategoryId, id })
+      if (this.currentCategoryId == id && this.init) {
         return
       }
+      this.init = true;
       this.allFilter = false;
       this.props = [];
       this.values = [];
