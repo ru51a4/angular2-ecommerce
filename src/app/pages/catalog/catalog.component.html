@@ -21,7 +21,8 @@
                         </span>
                         <div class="mt-2">
                             <div *ngFor="let item2 of values[item]" class="d-flex align-items-center mb-2">
-                                <input [(ngModel)]="item2.val" (ngModelChange)="ffilter(i)" type="checkbox">
+                                <input [(ngModel)]="item2.val" [disabled]="!currFilter" (ngModelChange)="ffilter(i)"
+                                    type="checkbox">
                                 <label>{{item2.title}}</label>
                             </div>
                             <div *ngIf="currFilter && i == currFilterCount"
