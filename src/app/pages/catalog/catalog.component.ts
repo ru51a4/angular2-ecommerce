@@ -66,7 +66,7 @@ export class CatalogComponent implements OnDestroy {
         });
       }
       this.els = d[0].els;
-      console.log({ d: this.currentCategoryId, id })
+      this.currFilter = true;
       if (this.currentCategoryId == id && this.init) {
         return
       }
@@ -92,6 +92,7 @@ export class CatalogComponent implements OnDestroy {
     });
   }
   public currFilterCount = -1;
+  public currFilter = true;
   ffilter(id: any) {
 
     let key = Object.keys(this.values).filter((c) => c != 'photo' && c != 'DETAIL_PICTURE');
@@ -107,6 +108,10 @@ export class CatalogComponent implements OnDestroy {
       });
     }
     this.fetch(where)
+    if (this.currFilter == false) {
+      return;
+    }
+    this.currFilter = false;
     this.currFilterCount = id;
     setTimeout(() => {
       this.currFilterCount = -1;
