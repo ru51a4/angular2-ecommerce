@@ -93,6 +93,7 @@ export class CatalogComponent implements OnDestroy {
   }
   public currFilterCount = -1;
   public currFilter = true;
+  public disabled = false;
   ffilter(id: any) {
 
     let key = Object.keys(this.values).filter((c) => c != 'photo' && c != 'DETAIL_PICTURE');
@@ -113,7 +114,9 @@ export class CatalogComponent implements OnDestroy {
     }
     this.currFilter = false;
     this.currFilterCount = id;
+    this.disabled = true;
     setTimeout(() => {
+      this.disabled = false;
       this.currFilterCount = -1;
     }, 1000)
   }
