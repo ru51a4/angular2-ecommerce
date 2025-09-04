@@ -123,7 +123,15 @@ export class CatalogComponent implements OnDestroy {
   toggle() {
     this.allFilter = true;
   }
-
+  public minPrice = 0;
+  public maxPrice = 10000;
+  slider(e: any, t: any) {
+    if (t == 1) {
+      this.minPrice = e.target.value
+    } else {
+      this.maxPrice = e.target.value
+    }
+  }
   ngOnDestroy(): void {
     this.service.breadcrump.next(null);
   }

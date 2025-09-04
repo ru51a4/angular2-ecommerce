@@ -14,6 +14,21 @@
     <div class="col-3">
         <div class="filter">
             <div>
+                <span class="title">
+                    Цена:
+                </span>
+                <div class="mt-2">
+                    <div class="d-flex justify-content-between">
+                        <input [(ngModel)]="minPrice" style="height: 35px;width: 94px;" class="form-control"
+                            type="number">
+                        <input [(ngModel)]="maxPrice" style="height: 35px; width: 94px;" class="form-control"
+                            type="number">
+                    </div>
+                    <mat-slider min="0" max="10000">
+                        <input (change)="slider($event,1)" [(ngModel)]="minPrice" matSliderStartThumb>
+                        <input (change)="slider($event,2)" [(ngModel)]="maxPrice" matSliderEndThumb>
+                    </mat-slider>
+                </div>
                 <ng-container *ngFor="let item of props; let i = index">
                     <ng-container *ngIf="allFilter || i <= 1">
                         <span class="title">

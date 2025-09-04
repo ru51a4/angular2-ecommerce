@@ -9,6 +9,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
+
 @NgModule({
     declarations: [ItemCardComponent, BuyModalComponent],
     imports: [

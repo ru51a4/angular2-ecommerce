@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ItemCardComponent } from 'src/app/components/item-card/item-card.component';
 import { SharedModule } from 'src/app/shared.module';
+import { MatSliderModule } from "@angular/material/slider";
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SharedModule } from 'src/app/shared.module';
     DashboardRoutingModule,
     FormsModule,
     SharedModule,
+    MatSliderModule
   ]
 })
 export class CatalogModule {
