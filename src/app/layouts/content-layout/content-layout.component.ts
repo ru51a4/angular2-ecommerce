@@ -68,17 +68,23 @@ export class ContentLayoutComponent implements OnInit {
     this.catalog_popup = !this.catalog_popup;
   }
 
-  go2(id: any, r: any) {
+  go2(item: any) {
+    let slug = item.slug;
+    let iblock_id = item.iblock_id;
+    let r = this.service.catalog.getValue().tree[iblock_id]
+    r = JSON.parse(JSON.stringify(r.path))
+    r.shift();
     let _arr = Object.keys(this.service.slugs.getValue())
-    for (let i = 0; i <= _arr.length - 1; i++) {
-      if (this.service.slugs.getValue()[_arr[i]] == r) {
-        this.router.navigate(['/detail', _arr[i], id], {
-          relativeTo: this.route,
-        });
-
+    let res: any = [];
+    for (let j = 0; j <= r.length - 1; j++) {
+      for (let i = 0; i <= _arr.length - 1; i++) {
+        if (this.service.slugs.getValue()[_arr[i]] == r[j]) {
+          res.push(_arr[i])
+          break;
+        }
       }
     }
-
+    this.router.navigate(['/catalog', ...res, slug, 'detail'])
 
   }
   go(title: any) {
