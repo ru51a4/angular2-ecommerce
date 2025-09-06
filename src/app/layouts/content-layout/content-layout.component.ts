@@ -83,7 +83,7 @@ export class ContentLayoutComponent implements OnInit {
   }
   go(title: any) {
     let r: any = Object.values(this.raw.tree).filter((c: any) => c).find((c: any) => c.slug[c.slug.length - 1] == title);
-    r = r.path
+    r = JSON.parse(JSON.stringify(r.path))
     r.shift();
     let _arr = Object.keys(this.service.slugs.getValue())
     let res: any = [];
