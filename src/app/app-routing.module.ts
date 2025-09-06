@@ -6,7 +6,7 @@ import { UrlSegment, UrlMatchResult } from '@angular/router';
 // Функция-матчер для обработки массива ID
 export function arrayIdMatcher(url: UrlSegment[]): UrlMatchResult | null {
   // Проверяем, что первый сегмент - 'catalog', а остальные - числовые ID
-  if (url.length >= 1 && url[0].path === 'catalog') {
+  if (url.length >= 1 && url[url.length - 1].path != 'detail' && url[0].path === 'catalog') {
     const idSegments = url.slice(1);
 
     // Проверяем, что все остальные сегменты - числа
@@ -23,7 +23,7 @@ export function arrayIdMatcher(url: UrlSegment[]): UrlMatchResult | null {
 }
 export function arrayIdMatcherDetail(url: UrlSegment[]): UrlMatchResult | null {
   // Проверяем, что первый сегмент - 'catalog', а остальные - числовые ID
-  if (url.length >= 1 && url[0].path === 'detail') {
+  if (url.length >= 1 && url[url.length - 1].path === 'detail') {
     const idSegments = url.slice(1);
 
     // Проверяем, что все остальные сегменты - числа
@@ -31,7 +31,7 @@ export function arrayIdMatcherDetail(url: UrlSegment[]): UrlMatchResult | null {
       return {
         consumed: url,
         posParams: {
-          ids: new UrlSegment(idSegments.map(s => s.path).join(','), {}) // Передаем как строку с разделителями
+          ids: new UrlSegment(idSegments.map(s => s.path).filter((c, i) => i !== idSegments.length - 1).join(','), {}) // Передаем как строку с разделителями
         }
       };
     }
