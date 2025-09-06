@@ -56,7 +56,9 @@ export class DetailComponent implements OnDestroy {
         id = this.service.slugels.getValue()[id];
         let catalogId: any = _id[_id.length - 2];
         catalogId = this.service.slugs.getValue()[catalogId]
+
         this.fetch(id, catalogId)
+
         // Загрузите данные на основе нового ID
       });
       this.fetch(id)

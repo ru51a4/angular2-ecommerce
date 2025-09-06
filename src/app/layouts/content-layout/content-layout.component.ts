@@ -33,7 +33,7 @@ export class ContentLayoutComponent implements OnInit {
       this.raw = d;
       this.d = [...Object.values(d.tree)?.filter((c: any) => c.path.length == 2).map((c: any) => c.key)].filter((c) => c);
       this.dd.push(...this.service.childsId.getValue().filter((c: any) => c.path.includes(2)))
-
+      console.log(this.dd)
     });
   }
 

@@ -96,7 +96,7 @@
   <div class="container d-flex align-items-center">
     <img width="13px" src="/assets/home.svg" />
     <span style="cursor: pointer;" routerLink="/dashboard">Главная </span>
-    <ng-container *ngIf="url.includes('/catalog')">
+    <ng-container *ngIf="url.includes('/catalog') && !url.includes('/detail')">
       <ng-container *ngFor="let item of service.breadcrump |async">
         <span>/</span>
         <span *ngIf="!childIds.includes(item)">{{raw.tree[item]?.key}}</span>
