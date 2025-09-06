@@ -38,13 +38,23 @@ export class DetailComponent implements OnDestroy {
   }
   ngOnInit() {
     this.service.globalFetch().subscribe(() => {
-      let id = this.route.snapshot.params['id'];
+      let id = this.route.snapshot.params['ids'].split(",");
+      let sslug = id[id.length - 1];
+      if (this.service.slugs.getValue()[sslug]) {
+        this.router.navigate(['/catalog', ...id])
+        return;
+      }
+
+      id = id[id.length - 1];
+
       id = this.service.slugels.getValue()[id];
 
       this.route.paramMap.subscribe(params => {
-        let id: any = params.get('id');
+        let _id: any = params.get('ids')?.split(",");
+        let id = _id[_id.length - 1]
+
         id = this.service.slugels.getValue()[id];
-        let catalogId: any = params.get('catalogid')
+        let catalogId: any = _id[_id.length - 2];
         catalogId = this.service.slugs.getValue()[catalogId]
         this.fetch(id, catalogId)
         // Загрузите данные на основе нового ID
@@ -52,14 +62,16 @@ export class DetailComponent implements OnDestroy {
       this.fetch(id)
 
       this.service.catalog.subscribe((d: any) => {
-        let catalogId: any = this.route.snapshot.params['catalogid'];
+        let catalogId: any = this.route.snapshot.params['ids'].split(",");
+        catalogId = catalogId[catalogId.length - 2]
         catalogId = this.service.slugs.getValue()[catalogId];
 
         this.service.breadcrump.next(d.tree[Number(catalogId)].path);
 
       })
 
-      let catalogId: any = this.route.snapshot.params['catalogid'];
+      let catalogId: any = this.route.snapshot.params['ids'].split(",");
+      catalogId = catalogId[catalogId.length - 2]
       catalogId = this.service.slugs.getValue()[catalogId];
 
       this.service.breadcrump.next(this.service.catalog.getValue()?.tree?.[Number(catalogId)]?.path);

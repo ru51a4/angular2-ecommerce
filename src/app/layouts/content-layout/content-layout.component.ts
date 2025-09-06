@@ -83,14 +83,20 @@ export class ContentLayoutComponent implements OnInit {
   }
   go(title: any) {
     let r: any = Object.values(this.raw.tree).filter((c: any) => c).find((c: any) => c.slug[c.slug.length - 1] == title);
-    r = r.path[r.path.length - 1];
+    r = r.path
+    r.shift();
     let _arr = Object.keys(this.service.slugs.getValue())
-    for (let i = 0; i <= _arr.length - 1; i++) {
-      if (this.service.slugs.getValue()[_arr[i]] == r) {
-        this.router.navigate(['/catalog', _arr[i]])
-
+    let res: any = [];
+    for (let j = 0; j <= r.length - 1; j++) {
+      for (let i = 0; i <= _arr.length - 1; i++) {
+        if (this.service.slugs.getValue()[_arr[i]] == r[j]) {
+          res.push(_arr[i])
+          break;
+        }
       }
     }
+    this.router.navigate(['/catalog', ...res])
+
   }
   public serachRes: any = [];
   public serachString = '';
