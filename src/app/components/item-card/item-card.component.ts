@@ -43,7 +43,7 @@ export class ItemCardComponent {
   }
   detail() {
     let slug = JSON.parse(JSON.stringify(this.service.catalog.getValue().tree[this.data.iblock_id].slug));
-    this.router.navigate(['/catalog', ...slug, this.data.slug, '/detail']);
+    this.router.navigate(['/catalog', ...slug, this.data.slug, 'detail']);
   }
 
 }
