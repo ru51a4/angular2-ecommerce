@@ -84,6 +84,7 @@ export class CatalogComponent implements OnDestroy {
       this.props = d[0].props.res.map((c: any) => c.name);
       if (!this.init) {
         this.init_filter = this.route.snapshot.params['ffilter']?.split(",");
+        this.init_filter = this.init_filter[0] ? this.init_filter : [];
       }
       this.init = true;
       let a = []
@@ -99,6 +100,7 @@ export class CatalogComponent implements OnDestroy {
         this.propsId[d.name] = d.id;
       });
       if (this.init_filter.length) {
+        console.log(this.init_filter)
         this.ffilter(-1);
         this.allFilter = true;
       }
