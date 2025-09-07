@@ -6,15 +6,32 @@ import { UrlSegment, UrlMatchResult } from '@angular/router';
 // Функция-матчер для обработки массива ID
 export function arrayIdMatcher(url: UrlSegment[]): UrlMatchResult | null {
   // Проверяем, что первый сегмент - 'catalog', а остальные - числовые ID
-  if (url.length >= 1 && url[url.length - 1].path != 'detail' && url[0].path === 'catalog') {
+  if (url.length >= 1 && !url.map((c) => c.path).includes("detail") && url[0].path === 'catalog') {
     const idSegments = url.slice(1);
-
+    let ffilter = [];
+    let _arr = idSegments.map(s => s.path);
+    let _path = [];
+    let f = false;
+    for (let i = 0; i <= _arr.length - 1; i++) {
+      if (_arr[i] == 'apply') {
+        f = false;
+      }
+      else if (_arr[i] == 'filter') {
+        f = true;
+      }
+      else if (f) {
+        ffilter.push(_arr[i]);
+      } else {
+        _path.push(_arr[i])
+      }
+    }
     // Проверяем, что все остальные сегменты - числа
     if (idSegments.every(segment => segment.path)) {
       return {
         consumed: url,
         posParams: {
-          ids: new UrlSegment(idSegments.map(s => s.path).join(','), {}) // Передаем как строку с разделителями
+          ffilter: new UrlSegment(ffilter.join(','), {}),
+          ids: new UrlSegment(_path.join(','), {}) // Передаем как строку с разделителями
         }
       };
     }
@@ -23,7 +40,7 @@ export function arrayIdMatcher(url: UrlSegment[]): UrlMatchResult | null {
 }
 export function arrayIdMatcherDetail(url: UrlSegment[]): UrlMatchResult | null {
   // Проверяем, что первый сегмент - 'catalog', а остальные - числовые ID
-  if (url.length >= 1 && url[url.length - 1].path === 'detail') {
+  if (url.length >= 1 && url.map((c) => c.path).includes("detail")) {
     const idSegments = url.slice(1);
 
     // Проверяем, что все остальные сегменты - числа

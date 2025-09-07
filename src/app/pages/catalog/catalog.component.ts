@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, forkJoin } from 'rxjs';
 import { GlobalService } from 'src/app/global.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
@@ -12,7 +12,7 @@ export class CatalogComponent implements OnDestroy {
 
   public allFilter = false;
   public els: any = [];
-  constructor(public router: Router, private route: ActivatedRoute, public service: GlobalService) {
+  constructor(private location: Location, public router: Router, private route: ActivatedRoute, public service: GlobalService) {
 
   }
   ngOnInit() {
@@ -39,6 +39,7 @@ export class CatalogComponent implements OnDestroy {
       })
       this.fetch();
 
+
     });
   }
   public props: any = [];
@@ -46,6 +47,7 @@ export class CatalogComponent implements OnDestroy {
   public propsId: any = [];
   public init = false;
   public currentCategoryId = []
+  public init_filter: any = [];
   fetch(where: any = []) {
     let id = this.route.snapshot.params['ids'].split(",");
     id = id[id.length - 1];
@@ -73,7 +75,6 @@ export class CatalogComponent implements OnDestroy {
       if (this.currentCategoryId == id && this.init) {
         return
       }
-      this.init = true;
       this.allFilter = false;
       this.props = [];
       this.values = [];
@@ -81,18 +82,29 @@ export class CatalogComponent implements OnDestroy {
 
       this.currentCategoryId = id;
       this.props = d[0].props.res.map((c: any) => c.name);
+      if (!this.init) {
+        this.init_filter = this.route.snapshot.params['ffilter']?.split(",");
+      }
+      this.init = true;
+      let a = []
       Object.values(d[0].props.values).forEach((arr: any) => {
         arr.forEach((d: any) => {
           if (!this.values[d.name]) {
             this.values[d.name] = []
           }
-          this.values[d.name].push({ title: decodeHTMLEntities(d.value), "val": false, "id": d.id })
+          this.values[d.name].push({ title: decodeHTMLEntities(d.value), "val": this.init_filter.includes(d.slug), "id": d.id, slug: d.slug })
         })
       });
       d[0].props.res.forEach((d: any) => {
         this.propsId[d.name] = d.id;
       });
+      if (this.init_filter.length) {
+        this.ffilter(-1);
+        this.allFilter = true;
+      }
+
     });
+
   }
   public currFilterCount = -1;
   public currFilter = true;
@@ -101,16 +113,33 @@ export class CatalogComponent implements OnDestroy {
 
     let key = Object.keys(this.values).filter((c) => c != 'photo' && c != 'DETAIL_PICTURE');
     let where: any = {};
+    let slugs: any = {}
     for (let i = 0; i <= key.length - 1; i++) {
       let t: any = [];
       this.values[key[i]].filter((c: any) => c.val).forEach((val: any) => {
-        console.log({ val })
         if (!where[this.propsId[key[i]]]) {
           where[this.propsId[key[i]]] = [];
+          slugs[this.propsId[key[i]]] = [];
+
         }
+        slugs[this.propsId[key[i]]].push(val.slug)
         where[this.propsId[key[i]]].push(val.id)
       });
+
     }
+    let _url = this.route.snapshot.params['ids'].split(",");
+    _url.unshift('catalog')
+    let _ffilter: any = Object.values(slugs)
+    let _fffilerr: any = [];
+    for (let i = 0; i <= _ffilter.length - 1; i++) {
+      _fffilerr.push(..._ffilter[i]);
+    }
+    if (_fffilerr?.length) {
+      _fffilerr.unshift('filter')
+      _fffilerr.push('apply')
+      this.location.replaceState([..._url, ..._fffilerr].join("/"))
+    }
+
     this.fetch(where)
     if (this.currFilter == false) {
       return;
