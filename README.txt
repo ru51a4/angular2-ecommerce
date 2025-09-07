@@ -8,8 +8,8 @@ demo -> https://angular-example-theta.vercel.app/
 demo(iblockcms) -> http://188.120.245.72:4443/
 demo(iblockcms) todo:
 переписать обращения к апи. сделать ручки с slug.
-настроить роутитинг - hierarchy slug + slug filter.
+настроить роутитинг - hierarchy slug + slug filter. + check - осталась пагинация
 разобраться с SSR.
-цены и range slider в каталоге.
+цены и range slider в каталоге. + check - осталась бекенд часть
 адаптивность.
  
