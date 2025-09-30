@@ -15,6 +15,7 @@ export class DetailComponent implements OnDestroy {
 
   public allFilter = false;
   public data: any = {}
+  public init = false;
   constructor(public dialog: MatDialog, private router: Router, private route: ActivatedRoute, public service: GlobalService) {
 
 
@@ -30,6 +31,7 @@ export class DetailComponent implements OnDestroy {
           key: key, curr: true, val: Array.isArray(this.data.prop[key]) ? this.data.prop[key].map((c: any, i: any) => { return { title: c, curr: i == 0 } }) : [{ title: this.service.decodeHTMLEntities(this.data.prop[key]), curr: true }]
         }
       });
+      this.init = true;
       if (catalogId) {
         this.service.breadcrump.next(this.service.catalog.getValue()?.tree?.[Number(catalogId)]?.path);
       }
