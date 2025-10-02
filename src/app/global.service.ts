@@ -69,7 +69,10 @@ export class GlobalService {
     });
   }
   public slugs: any = new BehaviorSubject(null);
-  public slugels: any = new BehaviorSubject({});
+  getIdBySlug(slug: string) {
+    //slugels
+    return this.http.post(`${this.apiUrl}/getidbyslug/`, { 'slug': slug });
+  }
 
   globalFetch() {
     let _await = new Subject();
@@ -128,9 +131,9 @@ export class GlobalService {
         els.push(...data[i].els)
       }
       els.forEach((item: any) => {
-        _slugs[item.slug] = Number(item.id) ?? null
+        //  _slugs[item.slug] = Number(item.id) ?? null
       })
-      this.slugels.next(_slugs)
+      //this.slugels.next(_slugs)
       els = els.filter((c: any, i: any) => i <= 7)
       this.els.next(els);
       _await.next(true)

@@ -39,7 +39,7 @@ export class DetailComponent implements OnDestroy {
 
   }
   ngOnInit() {
-    this.service.globalFetch().subscribe(() => {
+    this.service.globalFetch().subscribe(async () => {
       let id = this.route.snapshot.params['ids'].split(",");
       let sslug = id[id.length - 1];
       if (this.service.slugs.getValue()[sslug]) {
@@ -49,13 +49,13 @@ export class DetailComponent implements OnDestroy {
 
       id = id[id.length - 1];
 
-      id = this.service.slugels.getValue()[id];
+      id = await this.service.getIdBySlug(id).toPromise();
 
-      this.route.paramMap.subscribe(params => {
+      this.route.paramMap.subscribe(async (params) => {
         let _id: any = params.get('ids')?.split(",");
         let id = _id[_id.length - 1]
 
-        id = this.service.slugels.getValue()[id];
+        id = await this.service.getIdBySlug(id).toPromise();
         let catalogId: any = _id[_id.length - 2];
         catalogId = this.service.slugs.getValue()[catalogId]
 
