@@ -20,13 +20,18 @@ export class DetailComponent implements OnDestroy {
 
 
   }
+  public ddata: any;
   fetch(id: any, catalogId: any = null) {
     console.log({ id, catalogId, aa: this.service.slugs.getValue() })
     this.service.getProduct(id).subscribe((data: any) => {
       this.data = data;
       this.service.currentDetailTitle.next(data.name)
-
-      this.data.props = Object.keys(this.data.prop).filter((key) => key !== 'DETAIL_PICTURE' && key !== 'photo')?.map((key) => {
+      this.ddata.props = Object.keys(this.data.prop).filter((key) => key !== 'DETAIL_PICTURE')?.map((key) => {
+        return {
+          key: key, curr: true, val: Array.isArray(this.data.prop[key]) ? this.data.prop[key].map((c: any, i: any) => { return { title: c, curr: i == 0 } }) : [{ title: this.service.decodeHTMLEntities(this.data.prop[key]), curr: true }]
+        }
+      });
+      this.data.props = Object.keys(this.data.prop).filter((key) => key !== 'DETAIL_PICTURE' && key !== 'Цена')?.map((key) => {
         return {
           key: key, curr: true, val: Array.isArray(this.data.prop[key]) ? this.data.prop[key].map((c: any, i: any) => { return { title: c, curr: i == 0 } }) : [{ title: this.service.decodeHTMLEntities(this.data.prop[key]), curr: true }]
         }
@@ -165,5 +170,7 @@ export class DetailComponent implements OnDestroy {
     this.service.currentDetailTitle.next(null)
     this.service.breadcrump.next(null)
   }
-
+  price() {
+    return this.ddata.props?.find((item: { key: string; }) => item.key == 'Цена')?.val + 'руб.' ?? 0 + 'руб.'
+  }
 }
