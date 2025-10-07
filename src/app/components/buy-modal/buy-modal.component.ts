@@ -20,7 +20,7 @@ export class BuyModalComponent {
   }
   public checkbox = false;
   pic() {
-    return `https://iblockcms.mooo.com/${this.data.prop['DETAIL_PICTURE']}`
+    return `${this.data.prop['DETAIL_PICTURE']}`
   }
   public dirty = false;
 

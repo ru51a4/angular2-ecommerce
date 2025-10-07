@@ -13,7 +13,7 @@ export class GlobalService {
     let cart: any = localStorage.getItem('cart') ?? '[]';
     this.cart.next(JSON.parse(cart))
   }
-  public apiUrl = 'https://iblockcms.mooo.com/api'
+  public apiUrl = 'http://localhost:8000/api'
   modals = new BehaviorSubject(false);
   public breadcrump: any = new BehaviorSubject([])
   user = new BehaviorSubject<any>({});
@@ -55,18 +55,7 @@ export class GlobalService {
     return this.http.get(`${this.apiUrl}/detail/${id}`)
   }
   decodeHTMLEntities(text: any) {
-    const entities: any = {
-      '&quot;': '"',
-      '&amp;': '&',
-      '&lt;': '<',
-      '&gt;': '>',
-      '&#39;': "'",
-      '&nbsp;': ' '
-    };
-
-    return text.replace(/&(quot|amp|lt|gt|#39|nbsp);/g, (match: any, entity: any) => {
-      return entities[match] || match;
-    });
+    return text;
   }
   public slugs: any = new BehaviorSubject(null);
   getIdBySlug(slug: string) {

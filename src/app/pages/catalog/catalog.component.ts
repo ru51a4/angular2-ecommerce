@@ -12,6 +12,7 @@ export class CatalogComponent implements OnDestroy {
 
   public allFilter = false;
   public els: any = [];
+  public count = 0;
   constructor(private location: Location, public router: Router, private route: ActivatedRoute, public service: GlobalService) {
 
   }
@@ -48,27 +49,18 @@ export class CatalogComponent implements OnDestroy {
   public init = false;
   public currentCategoryId = []
   public init_filter: any = [];
+  public numPage = 1;
+
   fetch(where: any = []) {
     let id = this.route.snapshot.params['ids'].split(",");
     id = id[id.length - 1];
     id = this.service.slugs.getValue()[id]
 
-    forkJoin([this.service.getProductsFilter(id, 1, where), this.service.getProductsFilter(id, 2, where)]).subscribe((d: any) => {
+    forkJoin([this.service.getProductsFilter(id, this.numPage, where)]).subscribe((d: any) => {
+      this.count = d[0].count;
 
-      d[0].els = [...d[0].els, ...d[1].els];
       function decodeHTMLEntities(text: any) {
-        const entities: any = {
-          '&quot;': '"',
-          '&amp;': '&',
-          '&lt;': '<',
-          '&gt;': '>',
-          '&#39;': "'",
-          '&nbsp;': ' '
-        };
-
-        return text.replace(/&(quot|amp|lt|gt|#39|nbsp);/g, (match: any, entity: any) => {
-          return entities[match] || match;
-        });
+        return text;
       }
       this.els = d[0].els;
       this.currFilter = true;
@@ -112,7 +104,10 @@ export class CatalogComponent implements OnDestroy {
   public currFilter = true;
   public disabled = false;
   ffilter(id: any) {
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (id != -1) {
+      this.numPage = 1;
+    }
     let key = Object.keys(this.values).filter((c) => c != 'photo' && c != 'DETAIL_PICTURE');
     let where: any = {};
     let slugs: any = {}
@@ -169,4 +164,15 @@ export class CatalogComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.service.breadcrump.next(null);
   }
+  plus() {
+    this.numPage++
+    this.ffilter(-1);
+  }
+
+  minus() {
+    this.numPage--
+    this.ffilter(-1);
+
+  }
+
 }

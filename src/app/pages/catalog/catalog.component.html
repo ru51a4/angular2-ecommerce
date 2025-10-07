@@ -67,3 +67,20 @@
         </div>
     </div>
 </div>
+<div *ngIf="init" class="row">
+    <div class="col-6">
+
+    </div>
+    <div class="col-6">
+        <div class="d-flex align-items-center justify-content-end">
+            <button *ngIf="numPage != 1" class="btn btn-buy" (click)="minus()">
+                Назад
+            </button>
+            <div class="title mx-3">Страница - {{numPage}}</div>
+            <button *ngIf="count > numPage * 6" class="btn btn-buy" (click)="plus()">
+                Следующая
+            </button>
+        </div>
+
+    </div>
+</div>

@@ -114,7 +114,7 @@ export class ContentLayoutComponent implements OnInit {
 
   }
   pict(a: any) {
-    return `https://iblockcms.mooo.com/${a}`
+    return `${a}`
   }
 
 }

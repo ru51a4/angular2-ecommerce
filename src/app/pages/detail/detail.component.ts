@@ -112,7 +112,7 @@ export class DetailComponent implements OnDestroy {
 
 
   pic() {
-    return `https://iblockcms.mooo.com/${this.data.prop?.['DETAIL_PICTURE']}`
+    return `${this.data.prop?.['DETAIL_PICTURE']}`
   }
   pphoto() {
     return this.data.prop?.['photo']?.map((c: any) => {
