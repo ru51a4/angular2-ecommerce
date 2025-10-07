@@ -13,7 +13,7 @@ export class GlobalService {
     let cart: any = localStorage.getItem('cart') ?? '[]';
     this.cart.next(JSON.parse(cart))
   }
-  public apiUrl = 'http://localhost:8000/api'
+  public apiUrl = 'https://iblockcms.mooo.com/api'
   modals = new BehaviorSubject(false);
   public breadcrump: any = new BehaviorSubject([])
   user = new BehaviorSubject<any>({});
