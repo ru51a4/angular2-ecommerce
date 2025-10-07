@@ -35,7 +35,9 @@ export class CatalogComponent implements OnDestroy {
         id = id[id.length - 1];
         id = this.service.slugs.getValue()[id]
         this.service.breadcrump.next(this.service.catalog.getValue().tree?.[id]?.path);
+        this.numPage = 1;
         this.fetch();
+
 
       })
       this.fetch();
