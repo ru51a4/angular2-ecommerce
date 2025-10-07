@@ -20,7 +20,7 @@ export class DetailComponent implements OnDestroy {
 
 
   }
-  public ddata: any;
+  public ddata: any = {};
   fetch(id: any, catalogId: any = null) {
     console.log({ id, catalogId, aa: this.service.slugs.getValue() })
     this.service.getProduct(id).subscribe((data: any) => {
@@ -171,6 +171,6 @@ export class DetailComponent implements OnDestroy {
     this.service.breadcrump.next(null)
   }
   price() {
-    return this.ddata.props?.find((item: { key: string; }) => item.key == 'Цена')?.val + 'руб.' ?? 0 + 'руб.'
+    return this.ddata.props?.find((item: { key: string; }) => item.key == 'Цена')?.val[0].title + 'руб.' ?? 0 + 'руб.'
   }
 }
