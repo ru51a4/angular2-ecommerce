@@ -16,6 +16,9 @@ export class CatalogComponent implements OnDestroy {
   constructor(private location: Location, public router: Router, private route: ActivatedRoute, public service: GlobalService) {
 
   }
+  page() {
+    return Math.ceil(this.count / (1 * 9));
+  }
   ngOnInit() {
 
     let id = this.route.snapshot.params['ids'].split(",");

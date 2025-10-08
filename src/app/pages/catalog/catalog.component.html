@@ -73,13 +73,15 @@
     </div>
     <div class="col-6">
         <div class="d-flex align-items-center justify-content-end">
-            <div class="title mx-3">Страница - {{numPage}}</div>
-            <button *ngIf="numPage != 1" class="btn mx-1 btn-buy" (click)="minus()">
-                Назад
-            </button>
-            <button *ngIf="count > numPage * 9" class="btn btn-buy" (click)="plus()">
-                Следующая
-            </button>
+            <div class="title mx-3">Страница - {{numPage}}/{{page()}}</div>
+            <ng-container *ngIf="count / 9 > 1">
+                <button [disabled]="!(numPage != 1)" class="btn mx-1 btn-buy" (click)="minus()">
+                    Назад
+                </button>
+                <button [disabled]="(numPage*9) >= count" class="btn btn-buy" (click)="plus()">
+                    Следующая
+                </button>
+            </ng-container>
         </div>
 
     </div>

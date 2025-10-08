@@ -171,6 +171,10 @@ export class DetailComponent implements OnDestroy {
     this.service.breadcrump.next(null)
   }
   price() {
-    return this.ddata.props?.find((item: { key: string; }) => item.key == 'Цена')?.val[0].title + 'руб.' ?? 0 + 'руб.'
+    let p = this.ddata.props?.find((item: { key: string; }) => item.key == 'Цена')?.val;
+    if (p == Number(p)) {
+      return p + 'руб.'
+    }
+    return 'Не указано';
   }
 }

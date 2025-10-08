@@ -2,7 +2,7 @@
     <div class="col-6">
         <span>{{(service.catalog)['tree']?.[1]?.key | async}}</span>
     </div>
-    <div class="col-6 d-flex justify-content-end">
+    <div *ngIf="0" class="col-6 d-flex justify-content-end">
         <button class="btn">
             Хиты продаж
         </button>
@@ -18,6 +18,10 @@
     </div>
 </div>
 <div class="mt-5 d-flex justify-content-center flex-column align-items-center catalog">
+    <ng-container *ngIf="!(service.init | async)">
+        <div class="spinner-border" role="status">
+        </div>
+    </ng-container>
     <div class="d-flex flex-wrap">
         <ng-container *ngFor="let item of service.els | async; let i = index">
             <app-item-card *ngIf="i < 4" [data]="item"></app-item-card>

@@ -27,7 +27,7 @@ export class ItemCardComponent {
 
     this.data.props = Object.keys(this.data.prop).filter((key) => !Array.isArray(this.data.prop[key]) && key !== 'DETAIL_PICTURE' && key !== 'photo')?.map((key) => {
       return { key: key, val: this.service.decodeHTMLEntities(this.data.prop[key]) }
-    }).filter((c, i) => i < 3);
+    }).filter((c, i) => i > 0 && i <= 3);
   }
   buyModal() {
     let id = this.data.id
@@ -51,6 +51,11 @@ export class ItemCardComponent {
     this.router.navigate(['/catalog', ...slug, this.data.slug, 'detail']);
   }
   getprice() {
-    return this.ddata.props?.find((item: { key: string; }) => item.key == 'Цена')?.val + 'руб.' ?? 0 + 'руб.'
+    let p = this.ddata.props?.find((item: { key: string; }) => item.key == 'Цена')?.val;
+    if (p == Number(p)) {
+      return p + 'руб.'
+    }
+    return 'Не указано';
+
   }
 }

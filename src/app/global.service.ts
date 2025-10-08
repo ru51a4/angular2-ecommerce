@@ -22,7 +22,7 @@ export class GlobalService {
   public childsId: any = new BehaviorSubject([]);
   public childsIds: any = new BehaviorSubject([]);
   public currentDetailTitle: any = new BehaviorSubject('')
-
+  public init: any = new BehaviorSubject(false);
   public cart: any = new BehaviorSubject([]);
   addToCard(id: any) {
     this.cart.next([...this.cart.getValue(), id])
@@ -110,12 +110,12 @@ export class GlobalService {
       this.catalog.next(catalog);
       this.childsIds.next(rr);
       return forkJoin([
-        ...rr.sort(() => .5 - Math.random()).map((c) => this.getProducts(c, 1)),
-        ...rr.sort(() => .5 - Math.random()).map((c) => this.getProducts(c, 2))
+        ...rr.sort(() => .5 - Math.random()).filter((c, i) => i <= 0).map((c) => this.getProducts(c, 1)),
       ]);
     })).subscribe((data: any) => {
       let _slugs: any = {};
       let els = [];
+      this.init.next(true);
       for (let i = 0; i <= data.length - 1; i++) {
         els.push(...data[i].els)
       }
