@@ -78,7 +78,7 @@ export class CatalogComponent implements OnDestroy {
       this.propsId = [];
 
       this.currentCategoryId = id;
-      this.props = d[0].props.res.map((c: any) => c.name);
+      this.props = d[0].props.res.map((c: any) => c.name).sort((a: any, b: any) => Number(a) - Number(b));
       if (!this.init) {
         this.init_filter = this.route.snapshot.params['ffilter']?.split(",");
         this.init_filter = this.init_filter[0] ? this.init_filter : [];
@@ -91,6 +91,11 @@ export class CatalogComponent implements OnDestroy {
             this.values[d.name] = []
           }
           this.values[d.name].push({ title: decodeHTMLEntities(d.value), "val": this.init_filter.includes(d.slug), "id": d.id, slug: d.slug })
+        })
+      });
+      Object.keys(this.values).forEach((d) => {
+        this.values[d].sort((a: any, b: any) => {
+          return parseFloat(a.title) - parseFloat(b.title);
         })
       });
       d[0].props.res.forEach((d: any) => {
