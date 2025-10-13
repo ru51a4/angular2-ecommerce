@@ -101,6 +101,12 @@ export class CatalogComponent implements OnDestroy {
       d[0].props.res.forEach((d: any) => {
         this.propsId[d.name] = d.id;
       });
+      console.log({ a: this.values })
+
+      let pprice = this.values["Цена"].map((c: any) => Number(c.title)).filter((c: any) => c >= 0);
+      this.minPrice = Math.min(...pprice);
+      this.maxPrice = Math.max(...pprice);
+
       if (this.init_filter.length) {
         console.log(this.init_filter)
         this.ffilter(-1);
@@ -155,6 +161,7 @@ export class CatalogComponent implements OnDestroy {
     this.currFilterCount = id;
     this.disabled = true;
     setTimeout(() => {
+
       this.disabled = false;
       this.currFilterCount = -1;
     }, 1000)
@@ -186,3 +193,5 @@ export class CatalogComponent implements OnDestroy {
   }
 
 }
+
+

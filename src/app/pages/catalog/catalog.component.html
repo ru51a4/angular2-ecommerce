@@ -24,7 +24,7 @@
                         <input [(ngModel)]="maxPrice" style="height: 35px; width: 94px;" class="form-control"
                             type="number">
                     </div>
-                    <mat-slider min="0" max="10000">
+                    <mat-slider [min]="minPrice" [max]="maxPrice">
                         <input (change)="slider($event,1)" [(ngModel)]="minPrice" matSliderStartThumb>
                         <input (change)="slider($event,2)" [(ngModel)]="maxPrice" matSliderEndThumb>
                     </mat-slider>
