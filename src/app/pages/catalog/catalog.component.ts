@@ -55,6 +55,8 @@ export class CatalogComponent implements OnDestroy {
   public currentCategoryId = []
   public init_filter: any = [];
   public numPage = 1;
+  public _minPrice = 0;
+  public _maxPrice = 0;
 
   fetch(where: any = []) {
     let id = this.route.snapshot.params['ids'].split(",");
@@ -106,9 +108,9 @@ export class CatalogComponent implements OnDestroy {
       let pprice = this.values["Цена"].map((c: any) => Number(c.title)).filter((c: any) => c >= 0);
       this.minPrice = Math.min(...pprice);
       this.maxPrice = Math.max(...pprice);
-
+      this._minPrice = this.minPrice;
+      this._maxPrice = this.maxPrice;
       if (this.init_filter.length) {
-        console.log(this.init_filter)
         this.ffilter(-1);
         this.allFilter = true;
       }
