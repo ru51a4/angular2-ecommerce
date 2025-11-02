@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation } from '@kolkov/ngx-gallery';
@@ -20,7 +21,13 @@ export class DetailComponent implements OnDestroy {
 
 
   }
+  public review = false;
   public ddata: any = {};
+  public formreview = new FormGroup({
+    name: new FormControl('', Validators.required),
+    text: new FormControl('', Validators.required),
+  });
+
   fetch(id: any, catalogId: any = null) {
     console.log({ id, catalogId, aa: this.service.slugs.getValue() })
     this.service.getProduct(id).subscribe((data: any) => {
@@ -160,8 +167,13 @@ export class DetailComponent implements OnDestroy {
       })
     });
   }
-
-
+  public dirty = false
+  revieww() {
+    this.dirty = true
+    if (this.formreview.valid) {
+      this.review = !this.review
+    }
+  }
   add() {
     this.service.addToCard(this.data.id)
     this.router.navigate(['/cart'])

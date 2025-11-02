@@ -222,6 +222,34 @@
             </div>
 
         </div>
-    </div>
+        <div class="mt-4 w-100">
+            <div class="mb-2"><strong>Добаивить отзыв:</strong></div>
+            <hr>
 
-</div>
+            <div *ngIf="review" class="w-100">
+                <div class="alert alert-success" role="alert">
+                    Отзыв отправлен </div>
+            </div>
+            <div *ngIf="!review" class="w-100">
+                <form [formGroup]="formreview">
+                    <div class="col-12">
+                        <label style="font-size: 13px;">Имя<span style="color:red">*</span></label>
+                        <input [class.is-invalid]="dirty && formreview.controls['name'].invalid" formControlName="name"
+                            type="text" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <label style="font-size: 13px;">Текст отзыва<span style="color:red">*</span></label>
+                        <textarea [class.is-invalid]="dirty && formreview.controls['text'].invalid"
+                            formControlName="text" class="form-control"></textarea>
+                    </div>
+                    <div class="col-12 mt-4 d-flex">
+                        <button style="cursor: pointer;" (click)="revieww()"
+                            class="btn ms-auto btn-buy">Отправить</button>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
