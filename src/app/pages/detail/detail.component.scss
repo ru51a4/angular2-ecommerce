@@ -166,3 +166,20 @@ textarea {
     margin-bottom: 4px;
 
 }
+
+.star {
+    display: inline-block;
+    width: 18px;
+    padding: 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 150%;
+    line-height: 18px;
+    margin-right: 2px;
+    color: orange;
+
+    &:before {
+        content: "★";
+    }
+}
