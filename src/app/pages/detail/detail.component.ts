@@ -27,6 +27,11 @@ export class DetailComponent implements OnDestroy {
     name: new FormControl('', Validators.required),
     text: new FormControl('', Validators.required),
   });
+  public sstar = 0;
+  star(num: any) {
+    console.log(num)
+    this.sstar = num;
+  }
 
   fetch(id: any, catalogId: any = null) {
     console.log({ id, catalogId, aa: this.service.slugs.getValue() })

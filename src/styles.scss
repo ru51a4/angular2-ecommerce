@@ -2,11 +2,11 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 .btn:hover {
-    background: rgba(111, 115, 238, 1) !important;
+    background: #be1010 !important;
 }
 
 .btn {
-    background: rgb(111, 115, 238) !important;
+    background: #be1010 !important;
 }
 
 .header1 {
@@ -58,7 +58,6 @@
     color: rgba(0, 0, 0, 1);
     margin-right: 30px;
 }
-
 .header_main {
     margin-top: 24px;
 
@@ -66,7 +65,7 @@
 
     &--search {
         width: 100%;
-        border: 1.5px solid rgba(111, 115, 238, 1);
+        border: 1.5px solid #be1010;
 
         margin: 0 0px 0 50px;
 
@@ -125,12 +124,12 @@
         font-size: 16px;
         line-height: 100%;
         letter-spacing: 0%;
-        background: rgba(111, 115, 238, 1);
+        background: #be1010;
     }
 }
 
 .header_main--search-btn {
-    background: rgba(111, 115, 238, 1) !important;
+    background: #be1010 !important;
     color: white;
     margin-right: 50px;
     position: relative;
@@ -138,7 +137,7 @@
 }
 
 .header--end {
-    background: rgba(244, 247, 251, 1) !important;
+    background: #f1f1f1 !important;
     height: 40px;
 
     span {
@@ -174,8 +173,8 @@
         letter-spacing: 0%;
         text-align: center;
         background-color: white !important;
-        color: rgba(111, 115, 238, 1);
-        border: 1.3px solid rgba(111, 115, 238, 1);
+        color: #be1010;
+        border: 1.3px solid #be1010;
     }
 }
 
@@ -256,7 +255,7 @@
 
 .footer--icons {
     padding-top: 20px;
-    background: rgba(244, 247, 251, 1);
+    background: #f1f1f1;
 
     .container {
         border-bottom: 1px solid rgba(93, 108, 123, 1);
@@ -269,7 +268,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
 
-    background: rgba(244, 247, 251, 1);
+    background: #f1f1f1;
 
     img {
         margin-right: 10px;
@@ -287,7 +286,7 @@
 }
 
 .promo {
-    background: rgba(111, 115, 238, 1);
+    background: #be1010;
 
     .container {
         padding-top: 20px;
@@ -302,7 +301,7 @@
         line-height: 100%;
         letter-spacing: 0%;
         background: rgba(255, 255, 255, 0.2);
-        color: rgba(93, 108, 123, 1);
+        color: white;
         border: none !important;
         width: 400px;
         outline: none;
@@ -345,7 +344,7 @@
     margin: 50px 0px 150px 150px;
     position: absolute;
     background-color: white;
-    border: 1px solid rgba(111, 115, 238, 1);
+    border: 1px solid #be1010;
 
     z-index: 999;
 
@@ -357,7 +356,7 @@
             margin-bottom: 20px;
         }
 
-        background: rgba(244, 247, 251, 1);
+        background: #f1f1f1;
 
         span {
             font-family: Jost;
@@ -405,7 +404,7 @@
 }
 
 .footer-desc {
-    background: rgba(244, 247, 251, 1);
+    background: #f1f1f1;
 
     .container {
         padding-bottom: 40px;
@@ -428,7 +427,7 @@
         font-size: 12px;
         line-height: 100%;
         letter-spacing: 0%;
-        color: rgba(111, 115, 238, 1);
+        color: #be1010;
     }
 
     .cardd {

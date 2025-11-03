@@ -99,8 +99,7 @@
                         <div style="color: #b8b8b8;font-size: 12px;">
                             <span>01.11.2025</span>
                             <span class="ms-1">Мария</span>
-                            <span class="ms-1"><span class="star"></span><span class="star"></span><span
-                                    class="star"></span><span class="star"></span><span class="star"></span></span>
+                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
                         </div>
                         <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
                             мягкий, послевкусие приятное и
@@ -116,8 +115,7 @@
                         <div style="color: #b8b8b8;font-size: 12px;">
                             <span>01.11.2025</span>
                             <span class="ms-1">Мария</span>
-                            <span class="ms-1"><span class="star"></span><span class="star"></span><span
-                                    class="star"></span><span class="star"></span><span class="star"></span></span>
+                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
                         </div>
                         <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
                             мягкий, послевкусие приятное и
@@ -133,8 +131,7 @@
                         <div style="color: #b8b8b8;font-size: 12px;">
                             <span>01.11.2025</span>
                             <span class="ms-1">Мария</span>
-                            <span class="ms-1"><span class="star"></span><span class="star"></span><span
-                                    class="star"></span><span class="star"></span><span class="star"></span></span>
+                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
                         </div>
                         <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
                             мягкий, послевкусие приятное и
@@ -150,8 +147,7 @@
                         <div style="color: #b8b8b8;font-size: 12px;">
                             <span>01.11.2025</span>
                             <span class="ms-1">Мария</span>
-                            <span class="ms-1"><span class="star"></span><span class="star"></span><span
-                                    class="star"></span><span class="star"></span><span class="star"></span></span>
+                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
                         </div>
                         <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
                             мягкий, послевкусие приятное и
@@ -167,8 +163,7 @@
                         <div style="color: #b8b8b8;font-size: 12px;">
                             <span>01.11.2025</span>
                             <span class="ms-1">Мария</span>
-                            <span class="ms-1"><span class="star"></span><span class="star"></span><span
-                                    class="star"></span><span class="star"></span><span class="star"></span></span>
+                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
                         </div>
                         <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
                             мягкий, послевкусие приятное и
@@ -184,8 +179,7 @@
                         <div style="color: #b8b8b8;font-size: 12px;">
                             <span>01.11.2025</span>
                             <span class="ms-1">Мария</span>
-                            <span class="ms-1"><span class="star"></span><span class="star"></span><span
-                                    class="star"></span><span class="star"></span><span class="star"></span></span>
+                            <span class="ms-1"><app-star></app-star></span>
                         </div>
                         <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
                             мягкий, послевкусие приятное и
@@ -197,7 +191,7 @@
 
         </div>
         <div class="mt-4 w-100">
-            <div class="mb-2"><strong>Добаивить отзыв:</strong></div>
+            <div class="mb-2"><strong>Добавить отзыв:</strong></div>
             <hr>
 
             <div *ngIf="review" class="w-100">
@@ -206,6 +200,13 @@
             </div>
             <div *ngIf="!review" class="w-100">
                 <form [formGroup]="formreview">
+                    <div class="col-12">
+                        <span (click)="star(1)" [class.gray]="sstar < 1" class="star"></span><span
+                            [class.gray]="sstar < 2" (click)="star(2)" class="star"></span><span
+                            [class.gray]="sstar < 3" (click)="star(3)" class="star "></span><span (click)="star(4)"
+                            [class.gray]="sstar < 4" class="star "></span><span [class.gray]="sstar < 5"
+                            (click)="star(5)" class="star "></span>
+                    </div>
                     <div class="col-12">
                         <label style="font-size: 13px;">Имя<span style="color:red">*</span></label>
                         <input [class.is-invalid]="dirty && formreview.controls['name'].invalid" formControlName="name"

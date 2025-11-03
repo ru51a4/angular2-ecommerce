@@ -7,10 +7,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ItemCardComponent } from 'src/app/components/item-card/item-card.component';
 import { SharedModule } from 'src/app/shared.module';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { StarComponent } from 'src/app/components/star/star.component';
 
 
 @NgModule({
-  declarations: [DetailComponent],
+  declarations: [DetailComponent, StarComponent],
   imports: [
     CommonModule,
     DetailRoutingModule,

@@ -29,14 +29,14 @@ app-item-card {
         font-size: 12px;
         line-height: 100%;
         letter-spacing: 0%;
-        color: rgba(111, 115, 238, 1);
-        border: 1.3px solid rgba(111, 115, 238, 1);
+        color: #be1010;
+        border: 1.3px solid #be1010;
         padding: 7px;
     }
 }
 
 .filter {
-    background: rgba(244, 247, 251, 1);
+    background: #f1f1f1;
     padding: 20px;
 
     .title {
@@ -71,7 +71,7 @@ app-item-card {
         line-height: 100%;
         letter-spacing: 0%;
         text-align: center;
-        color: rgba(111, 115, 238, 1);
+        color: #be1010;
     }
 }
 

@@ -19,7 +19,7 @@
 <div class="header_main d-flex container justify-content-between align-items-center">
   <div class="d-flex">
     <span class="logo" style="cursor: pointer;" routerLink="/dashboard">
-      IBLOCKCMS
+      Alco&Co
     </span>
     <button style="cursor: pointer;" (click)="toggle()" class="btn btn-catalog">
       Каталог
@@ -46,9 +46,9 @@
   </div>
   <div class="d-flex" style="flex-grow: 1;">
     <div style="position: relative;" class="header_main--search">
-      <input [(ngModel)]="serachString" (ngModelChange)="find($event)" placeholder="Искать платье">
+      <input [(ngModel)]="serachString" (ngModelChange)="find($event)" placeholder="Искать">
       <div *ngIf="serachString && serachRes.length"
-        style="z-index: 999; margin-top: 10px; position: absolute;width: 100%;border: 1.5px solid rgb(111, 115, 238);background: white; padding: 10px; padding-bottom: 0px;">
+        style="z-index: 999; margin-top: 10px; position: absolute;width: 100%;border: 1.5px solid #be1010;background: white; padding: 10px; padding-bottom: 0px;">
         <div class="mb-3 d-flex align-items-center" *ngFor="let item of serachRes" (click)="go2(item)"
           style="cursor: pointer;">
           <div class="col-1 d-flex justify-content-center align-items-center">
@@ -247,7 +247,7 @@
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex">
         <span style="text-box: auto;" class="logo">
-          IBLOCKCMS
+          ALCO&CO
         </span>
         <img class="me-4" src="/assets/android.svg">
         <img src="/assets/apple.svg">

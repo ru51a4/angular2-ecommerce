@@ -1,0 +1,21 @@
+.gray {
+    color: gray !important;
+
+}
+
+.star {
+    width: 21px !important;
+    display: inline-block;
+    padding: 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 150%;
+    line-height: 18px;
+    margin-right: 2px;
+    color: orange;
+
+    &:before {
+        content: "★";
+    }
+}

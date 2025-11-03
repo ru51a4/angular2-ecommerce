@@ -48,7 +48,7 @@
     }
 
     .card {
-        background: rgba(244, 247, 251, 1);
+        background: #f1f1f1;
         padding: 15px;
         display: flex;
         flex-direction: row;
@@ -74,7 +74,7 @@
 }
 
 .buy {
-    background: rgba(244, 247, 251, 1);
+    background: #f1f1f1;
     padding: 15px;
 
     .title1 {
@@ -121,7 +121,7 @@
 }
 
 .choose {
-    border: 2px solid rgba(111, 115, 238, 1) !important;
+    border: 2px solid #be1010 !important;
 }
 
 .btn1 {
@@ -167,9 +167,14 @@ textarea {
 
 }
 
+.gray {
+    color: gray !important;
+
+}
+
 .star {
+    width: 21px !important;
     display: inline-block;
-    width: 18px;
     padding: 0 0;
     overflow: hidden;
     white-space: nowrap;
