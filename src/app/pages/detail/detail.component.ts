@@ -32,10 +32,18 @@ export class DetailComponent implements OnDestroy {
     console.log(num)
     this.sstar = num;
   }
-
+  public reviewww: any = [];
   fetch(id: any, catalogId: any = null) {
     console.log({ id, catalogId, aa: this.service.slugs.getValue() })
     this.service.getProduct(id).subscribe((data: any) => {
+      this.service.review(id).subscribe((review: any) => {
+        this.reviewww = review;
+        this.reviewww = this.reviewww.map((c: any) => {
+          return { ...c, star: Number(c.star.match(/\d+\.?\d*/g)[0]) }
+        })
+
+        console.log(this.reviewww);
+      });
       this.data = data;
       this.service.currentDetailTitle.next(data.name)
       this.ddata.props = Object.keys(this.data.prop).filter((key) => key !== 'DETAIL_PICTURE')?.map((key) => {

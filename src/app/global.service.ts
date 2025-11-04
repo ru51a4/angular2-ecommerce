@@ -133,6 +133,9 @@ export class GlobalService {
   find(str: any) {
     return this.http.get(this.apiUrl + `/index2/${str}`)
   }
+  review(id: any) {
+    return this.http.get(this.apiUrl + `/findr/${id}`)
+  }
 }
 
 

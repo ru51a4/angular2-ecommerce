@@ -91,102 +91,24 @@
             <hr>
 
             <div class="" style="max-height: 280px; overflow-y: auto;">
-                <div class="card w-100 d-flex flex-row p-2">
+                <div *ngIf="!reviewww.length">
+                    Отзывов нет.
+                </div>
+                <div *ngFor="let item of reviewww" class="card w-100 d-flex flex-row p-2">
                     <div class="avatar m-1">
                         <img height="60px" src="/assets/avatar.jpeg">
                     </div>
                     <div class="ms-1 d-flex flex-column">
                         <div style="color: #b8b8b8;font-size: 12px;">
-                            <span>01.11.2025</span>
-                            <span class="ms-1">Мария</span>
-                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
+                            <span>{{item.date}}</span>
+                            <span class="ms-1">{{item.author}}</span>
+                            <span class="ms-1"><app-star [sstar]="item.star"></app-star></span>
                         </div>
-                        <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
-                            мягкий, послевкусие приятное и
-                            тёплое.
+                        <div class="mt-1" style="font-size: 13px;">{{item.text}}
                         </div>
                     </div>
                 </div>
-                <div class="card w-100 d-flex flex-row p-2">
-                    <div class="avatar m-1">
-                        <img height="60px" src="/assets/avatar.jpeg">
-                    </div>
-                    <div class="ms-1 d-flex flex-column">
-                        <div style="color: #b8b8b8;font-size: 12px;">
-                            <span>01.11.2025</span>
-                            <span class="ms-1">Мария</span>
-                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
-                        </div>
-                        <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
-                            мягкий, послевкусие приятное и
-                            тёплое.
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-100 d-flex flex-row p-2">
-                    <div class="avatar m-1">
-                        <img height="60px" src="/assets/avatar.jpeg">
-                    </div>
-                    <div class="ms-1 d-flex flex-column">
-                        <div style="color: #b8b8b8;font-size: 12px;">
-                            <span>01.11.2025</span>
-                            <span class="ms-1">Мария</span>
-                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
-                        </div>
-                        <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
-                            мягкий, послевкусие приятное и
-                            тёплое.
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-100 d-flex flex-row p-2">
-                    <div class="avatar m-1">
-                        <img height="60px" src="/assets/avatar.jpeg">
-                    </div>
-                    <div class="ms-1 d-flex flex-column">
-                        <div style="color: #b8b8b8;font-size: 12px;">
-                            <span>01.11.2025</span>
-                            <span class="ms-1">Мария</span>
-                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
-                        </div>
-                        <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
-                            мягкий, послевкусие приятное и
-                            тёплое.
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-100 d-flex flex-row p-2">
-                    <div class="avatar m-1">
-                        <img height="60px" src="/assets/avatar.jpeg">
-                    </div>
-                    <div class="ms-1 d-flex flex-column">
-                        <div style="color: #b8b8b8;font-size: 12px;">
-                            <span>01.11.2025</span>
-                            <span class="ms-1">Мария</span>
-                            <span class="ms-1"><app-star [sstar]="4"></app-star></span>
-                        </div>
-                        <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
-                            мягкий, послевкусие приятное и
-                            тёплое.
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-100 d-flex flex-row p-2">
-                    <div class="avatar m-1">
-                        <img height="60px" src="/assets/avatar.jpeg">
-                    </div>
-                    <div class="ms-1 d-flex flex-column">
-                        <div style="color: #b8b8b8;font-size: 12px;">
-                            <span>01.11.2025</span>
-                            <span class="ms-1">Мария</span>
-                            <span class="ms-1"><app-star></app-star></span>
-                        </div>
-                        <div class="mt-1" style="font-size: 13px;">Напиток просто супер! Вкус насыщенный, но при этом
-                            мягкий, послевкусие приятное и
-                            тёплое.
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
         </div>
