@@ -33,6 +33,7 @@ export class DetailComponent implements OnDestroy {
     this.sstar = num;
   }
   public reviewww: any = [];
+  public pprice = '';
   fetch(id: any, catalogId: any = null) {
     console.log({ id, catalogId, aa: this.service.slugs.getValue() })
     this.service.getProduct(id).subscribe((data: any) => {
@@ -41,10 +42,10 @@ export class DetailComponent implements OnDestroy {
         this.reviewww = this.reviewww.map((c: any) => {
           return { ...c, star: Number(c.star.match(/\d+\.?\d*/g)[0]) }
         })
-
-        console.log(this.reviewww);
       });
       this.data = data;
+      this.pprice = this.data?.prop?.Цена ?? 'Не указано';
+      this.pprice = this.pprice == 'Не указано' ? this.pprice : this.pprice + ' ₽';
       this.service.currentDetailTitle.next(data.name)
       this.ddata.props = Object.keys(this.data.prop).filter((key) => key !== 'DETAIL_PICTURE')?.map((key) => {
         return {

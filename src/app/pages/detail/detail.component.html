@@ -29,18 +29,18 @@
                 <img class="me-2" src="/assets/green.svg">
                 <span>В наличии</span>
             </div>
-            <div>
+            <div *ngIf="false">
                 <img class="me-2" src="/assets/balance.svg">
                 <span>Сравнить</span>
             </div>
-            <div>
+            <div *ngIf="false">
                 <img class="me-2" src="/assets/share.svg">
                 <span>Поделиться</span>
             </div>
         </div>
-        <div class="mt-5 d-flex align-items-center justify-content-center title4">
-            <div class="price me-5">29 900 ₽</div>
-            <div class="card">
+        <div *ngIf="false" class="mt-5 d-flex align-items-center justify-content-center title4">
+            <div class="price me-5">{{(pprice)}}₽</div>
+            <div *ngIf="false" class="card">
                 <div>
                     <img class="me-3" width="24px" src="/assets/card.png">
                 </div>
@@ -64,7 +64,7 @@
         </div>
         <div class="mt-5 w-100 buy">
             <div class="d-flex justify-content-between">
-                <span class="title1">{{price()}}</span>
+                <span class="title1">{{pprice}}</span>
                 <div class="div1">
                     <img src="/assets/love.svg">
                 </div>
