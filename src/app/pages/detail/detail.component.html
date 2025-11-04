@@ -86,12 +86,12 @@
                 <button style="cursor: pointer;" (click)="add()" class="btn btn-buy">Добавить в корзину</button>
             </div>
         </div>
-        <div class="mt-4">
-            <div class="mb-2"><strong>Отзывы:</strong></div>
-            <hr>
+        <div class="mt-4 w-100">
+            <div class="mb-2 w-100"><strong>Отзывы:</strong></div>
+            <hr class="">
 
             <div class="" style="max-height: 280px; overflow-y: auto;">
-                <div *ngIf="!reviewww.length">
+                <div class="" *ngIf="!reviewww.length">
                     Отзывов нет.
                 </div>
                 <div *ngFor="let item of reviewww" class="card w-100 d-flex flex-row p-2">
