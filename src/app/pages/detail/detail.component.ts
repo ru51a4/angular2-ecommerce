@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation } from '@kolkov/ngx-gallery';
-import { filter } from 'rxjs';
+import { filter, forkJoin } from 'rxjs';
 import { BuyModalComponent } from 'src/app/components/buy-modal/buy-modal.component';
 import { GlobalService } from 'src/app/global.service';
 
@@ -36,13 +36,13 @@ export class DetailComponent implements OnDestroy {
   public pprice = '';
   fetch(id: any, catalogId: any = null) {
     console.log({ id, catalogId, aa: this.service.slugs.getValue() })
-    this.service.getProduct(id).subscribe((data: any) => {
-      this.service.review(id).subscribe((review: any) => {
-        this.reviewww = review;
-        this.reviewww = this.reviewww.map((c: any) => {
-          return { ...c, star: Number(c.star.match(/\d+\.?\d*/g)[0]) }
-        })
-      });
+    forkJoin([this.service.getProduct(id), this.service.review(id)]).subscribe((data: any) => {
+      let review = data[1];
+      data = data[0];
+      this.reviewww = review;
+      this.reviewww = this.reviewww.map((c: any) => {
+        return { ...c, star: Number(c.star.match(/\d+\.?\d*/g)[0]) }
+      })
       this.data = data;
       this.pprice = this.data?.prop?.Цена ?? 'Не указано';
       this.pprice = this.pprice == 'Не указано' ? this.pprice : this.pprice + ' ₽';
