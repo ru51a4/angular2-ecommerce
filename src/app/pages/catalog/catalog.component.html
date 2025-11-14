@@ -1,4 +1,4 @@
-<div class="head d-flex justify-content-between">
+<div class="head d-none d-lg-flex justify-content-between">
     <div class="ttitle">Фильтр</div>
     <div>
         <span class="me-3 sort">Сортировать:</span>
@@ -11,7 +11,7 @@
     </div>
 </div>
 <div class="mt-3 mb-5 row">
-    <div class="col-3">
+    <div class="d-none d-lg-block col-3">
         <div class="filter">
             <div>
                 <span class="title">
@@ -57,10 +57,10 @@
             </div>
         </div>
     </div>
-    <div class="col-9">
+    <div class="col-12 col-lg-9">
         <div class="row">
             <ng-container *ngFor="let item of els; let i = index">
-                <div class="col-4 d-flex justify-content-end">
+                <div class="col-6 col-lg-4 d-flex justify-content-end">
                     <app-item-card [data]="item"></app-item-card>
                 </div>
             </ng-container>
