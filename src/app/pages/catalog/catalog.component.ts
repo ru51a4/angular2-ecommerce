@@ -24,6 +24,7 @@ export class CatalogComponent implements OnDestroy {
     let id = this.route.snapshot.params['ids'].split(",");
     id = id[id.length - 1];
 
+    this.numPage = (this.route.snapshot.params['page'])
 
     this.service.globalFetch().subscribe(() => {
 
@@ -35,10 +36,11 @@ export class CatalogComponent implements OnDestroy {
       this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd),
       ).subscribe(() => {
         let id = this.route.snapshot.params['ids'].split(",");
+        this.numPage = (this.route.snapshot.params['page'])
         id = id[id.length - 1];
         id = this.service.slugs.getValue()[id]
         this.service.breadcrump.next(this.service.catalog.getValue().tree?.[id]?.path);
-        this.numPage = 1;
+
         this.fetch();
 
 
@@ -121,6 +123,7 @@ export class CatalogComponent implements OnDestroy {
   public currFilterCount = -1;
   public currFilter = true;
   public disabled = false;
+  public _ffilter = [];
   ffilter(id: any) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (id != -1) {
@@ -152,7 +155,8 @@ export class CatalogComponent implements OnDestroy {
     if (_fffilerr?.length) {
       _fffilerr.unshift('filter')
       _fffilerr.push('apply')
-      this.location.replaceState([..._url, ..._fffilerr].join("/"))
+      this._ffilter = _fffilerr;
+      this.location.replaceState([..._url, ..._fffilerr, this.numPage].join("/"))
     }
 
     this.fetch(where)
@@ -183,13 +187,22 @@ export class CatalogComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.service.breadcrump.next(null);
   }
+  go() {
+    let url = this.route.snapshot.params['ids'].split(",");
+    if (this._ffilter) {
+      return;
+    }
+    this.router.navigate(['/catalog', ...url, this.numPage])
+  }
   plus() {
     this.numPage++
+    this.go();
     this.ffilter(-1);
   }
 
   minus() {
     this.numPage--
+    this.go();
     this.ffilter(-1);
 
   }

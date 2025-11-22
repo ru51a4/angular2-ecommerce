@@ -10,6 +10,7 @@ export function arrayIdMatcher(url: UrlSegment[]): UrlMatchResult | null {
     const idSegments = url.slice(1);
     let ffilter = [];
     let _arr = idSegments.map(s => s.path);
+    let _page: string = String(_arr.pop());
     let _path = [];
     let f = false;
     for (let i = 0; i <= _arr.length - 1; i++) {
@@ -31,7 +32,8 @@ export function arrayIdMatcher(url: UrlSegment[]): UrlMatchResult | null {
         consumed: url,
         posParams: {
           ffilter: new UrlSegment(ffilter.join(','), {}),
-          ids: new UrlSegment(_path.join(','), {}) // Передаем как строку с разделителями
+          ids: new UrlSegment(_path.join(','), {}), // Передаем как строку с разделителями
+          page: new UrlSegment(_page, {})
         }
       };
     }

@@ -101,7 +101,7 @@ export class ContentLayoutComponent implements OnInit {
         }
       }
     }
-    this.router.navigate(['/catalog', ...res])
+    this.router.navigate(['/catalog', ...res, 1])
 
   }
   public serachRes: any = [];
