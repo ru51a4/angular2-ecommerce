@@ -189,7 +189,7 @@ export class CatalogComponent implements OnDestroy {
   }
   go() {
     let url = this.route.snapshot.params['ids'].split(",");
-    if (this._ffilter) {
+    if (this._ffilter.length) {
       return;
     }
     this.router.navigate(['/catalog', ...url, this.numPage])
