@@ -35,6 +35,7 @@ export class CatalogComponent implements OnDestroy {
 
       this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd),
       ).subscribe(() => {
+        this._ffilter = [];
         let id = this.route.snapshot.params['ids'].split(",");
         this.numPage = (this.route.snapshot.params['page'])
         id = id[id.length - 1];
