@@ -509,3 +509,9 @@
         letter-spacing: 0%;
     }
 }
+
+app-catalog {
+    display: flex;
+    min-height: 75vh;
+    flex-direction: column;
+}
